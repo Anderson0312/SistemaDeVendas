@@ -57,6 +57,7 @@
             dtgView.RowTemplate.Height = 25;
             dtgView.Size = new Size(601, 287);
             dtgView.TabIndex = 51;
+            dtgView.RowHeaderMouseClick += dtgView_RowHeaderMouseClick;
             // 
             // txtSearch
             // 
@@ -64,6 +65,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(507, 23);
             txtSearch.TabIndex = 50;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label12
             // 
@@ -87,6 +89,7 @@
             btnLimpar.TabIndex = 48;
             btnLimpar.Text = "LIMPAR";
             btnLimpar.UseVisualStyleBackColor = false;
+            btnLimpar.Click += btnLimpar_Click;
             // 
             // btnDelete
             // 
@@ -100,6 +103,7 @@
             btnDelete.TabIndex = 47;
             btnDelete.Text = "DELETAR";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAtualizar
             // 
@@ -113,6 +117,7 @@
             btnAtualizar.TabIndex = 46;
             btnAtualizar.Text = "ATUALIZAR";
             btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnConfirm
             // 
@@ -242,6 +247,7 @@
             Name = "frmCategoria";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmCategoria";
+            Load += frmCategoria_Load;
             ((System.ComponentModel.ISupportInitialize)dtgView).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
