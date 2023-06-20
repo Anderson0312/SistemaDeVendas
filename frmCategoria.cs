@@ -35,7 +35,7 @@ namespace SistemaDeVendas
 
             if (catBLL.title == "" || catBLL.description == "")
             {
-                MessageBox.Show("Digit os Dados Para Inserir o Usuario");
+                MessageBox.Show("Digite os Dados Para Inserir o Usuario");
             }
             else
             {

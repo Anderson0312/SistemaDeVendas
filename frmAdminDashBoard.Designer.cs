@@ -140,6 +140,7 @@
             productsToolStripMenuItem.Name = "productsToolStripMenuItem";
             productsToolStripMenuItem.Size = new Size(66, 19);
             productsToolStripMenuItem.Text = "Products";
+            productsToolStripMenuItem.Click += productsToolStripMenuItem_Click;
             // 
             // invoiceToolStripMenuItem
             // 
@@ -188,7 +189,7 @@
             Controls.Add(MnuStripTop);
             Name = "frmAdminDashBoard";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmAdminDashBoard";
+            Text = "Painel Administrador";
             WindowState = FormWindowState.Maximized;
             Load += frmAdminDashBoard_Load;
             MnuStripTop.ResumeLayout(false);

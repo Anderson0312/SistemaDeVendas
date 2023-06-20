@@ -38,5 +38,11 @@ namespace SistemaDeVendas
             frmCategoria categoria = new frmCategoria();
             categoria.Show();
         }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProduto produto = new frmProduto();
+            produto.Show();
+        }
     }
 }
