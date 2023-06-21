@@ -21,9 +21,15 @@ namespace SistemaDeVendas
 
         loginBLL l = new loginBLL();
         loginDAL loginD = new loginDAL();
+ 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public  string loggedIn()
+        {
+            return l.username;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

@@ -187,6 +187,37 @@ namespace Sistema_Vendas.DALDados
             #endregion
         }
 
+        public static int GetIDFromUserName(string userName)
+        {
+            int userID = 0;
+
+            using (SqlConnection connection = new SqlConnection(myconnstring))
+            {
+                connection.Open();
+
+                // Crie o comando SQL parametrizado
+                string query = "SELECT ID FROM tbl_user WHERE Nome = @UserName";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Adicione o parâmetro
+                    command.Parameters.AddWithValue("@UserName", userName);
+
+                    // Execute a consulta e obtenha o resultado
+                    object result = command.ExecuteScalar();
+
+                    // Verifique se o resultado não é nulo e se pode ser convertido para inteiro
+                    if (result != null && int.TryParse(result.ToString(), out int id))
+                    {
+                        userID = id;
+                    }
+                }
+
+                connection.Close();
+            }
+
+            return userID;
+        }
+
         internal DataTable Search()
         {
             throw new NotImplementedException();

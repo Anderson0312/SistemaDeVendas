@@ -84,5 +84,77 @@ namespace SistemaDeVendas
         {
             limparform();
         }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            //convertentdo o id para int porque vem como txt do form
+            prodBLL.id = Convert.ToInt32(txtIDProd.Text);
+            prodBLL.name = txtNomeProd.Text;
+            prodBLL.category = Convert.ToInt32(txtCatProd.Text);
+            prodBLL.description = txtDescProd.Text;
+            prodBLL.rate = Convert.ToDouble(txtPrecoProd.Text);
+            prodBLL.gty = Convert.ToDouble(txtQuanti.Text);
+            prodBLL.added_date = DateTime.Now;
+            prodBLL.added_by = 1;
+
+            bool success = prodDAL.Update(prodBLL);
+            if (success == true)
+            {
+                MessageBox.Show("Produto Atualizado Com Sucesso");
+                limparform();
+            }
+            else
+            {
+                MessageBox.Show("Não Foi Possível Atualizar o Produto");
+            }
+            DataTable dt = prodDAL.Select();
+            dtgView.DataSource = dt;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //convertentdo o id para int porque vem como txt do form
+            prodBLL.id = Convert.ToInt32(txtIDProd.Text);
+
+            bool success = prodDAL.Deletar(prodBLL);
+            if (success == true)
+            {
+                MessageBox.Show("Produto Deletado Com Sucesso");
+            }
+            else
+            {
+                MessageBox.Show("Não Foi Possível Deletar o Produto");
+            }
+            DataTable dt = prodDAL.Select();
+            dtgView.DataSource = dt;
+            limparform();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keywords = txtSearch.Text;
+            if (keywords != null)
+            {
+                DataTable dt = prodDAL.Search(keywords);
+                dtgView.DataSource = dt;
+            }
+            else
+            {
+                DataTable dt = prodDAL.Search();
+                dtgView.DataSource = dt;
+            }
+        }
+
+        private void dtgView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            int rowIndex = e.RowIndex;
+            txtIDProd.Text = dtgView.Rows[rowIndex].Cells[0].Value.ToString();
+            txtNomeProd.Text = dtgView.Rows[rowIndex].Cells[1].Value.ToString();
+            txtCatProd.Text = dtgView.Rows[rowIndex].Cells[2].Value.ToString();
+            txtDescProd.Text = dtgView.Rows[rowIndex].Cells[3].Value.ToString();
+            txtPrecoProd.Text = dtgView.Rows[rowIndex].Cells[4].Value.ToString();
+            txtQuanti.Text = dtgView.Rows[rowIndex].Cells[5].Value.ToString();
+        }
     }
 }

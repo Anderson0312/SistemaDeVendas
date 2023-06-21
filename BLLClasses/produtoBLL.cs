@@ -13,7 +13,7 @@ namespace SistemaDeVendas.BLLClasses
         public int category { get; set; }
         public string description { get; set;}
         public double rate { get; set;}
-        public int gty { get; set; }
+        public double gty { get; set; }
         public DateTime added_date { get; set; }
         public int added_by { get; set; }
     }

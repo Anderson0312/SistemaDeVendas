@@ -94,7 +94,7 @@ namespace SistemaDeVendas.DALDados
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "UPDATE tbl_product SET name =@name, category=@category ,description = @description, rate = @rate, qty=@qty, added_date = @added_date, added_by= @added_by WHERE id = @id";
+                String sql = "UPDATE tbl_product SET name =@name, category=@category ,description = @description, rate = @rate, gty=@gty, added_date = @added_date, added_by= @added_by WHERE id = @id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", p.id);
                 cmd.Parameters.AddWithValue("@name", p.name);
@@ -194,6 +194,11 @@ namespace SistemaDeVendas.DALDados
             return dt;
             #endregion
 
+        }
+
+        internal DataTable Search()
+        {
+            throw new NotImplementedException();
         }
     }
 }

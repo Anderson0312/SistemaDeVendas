@@ -44,5 +44,10 @@ namespace SistemaDeVendas
             frmProduto produto = new frmProduto();
             produto.Show();
         }
+
+        private void lblLogado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SistemaDeVendas
 {
@@ -21,6 +22,7 @@ namespace SistemaDeVendas
 
         categoriaBLL catBLL = new categoriaBLL();
         categoriaDAL catDAL = new categoriaDAL();
+        frmLogin login = new frmLogin();
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -31,7 +33,14 @@ namespace SistemaDeVendas
             catBLL.title = txtTituloCatego.Text;
             catBLL.description = txtDesc.Text;
             catBLL.added_date = DateTime.Now;
+
+            string userName = login.loggedIn();
+            Console.WriteLine($"ID do usuário '{userName}'");
+
+            //int userID = catDAL.GetIDFromUserName(userName);
             catBLL.added_by = 1;
+
+
 
             if (catBLL.title == "" || catBLL.description == "")
             {

@@ -63,6 +63,7 @@
             dtgView.RowTemplate.Height = 25;
             dtgView.Size = new Size(601, 340);
             dtgView.TabIndex = 65;
+            dtgView.RowHeaderMouseClick += dtgView_RowHeaderMouseClick;
             // 
             // txtSearch
             // 
@@ -70,6 +71,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(507, 23);
             txtSearch.TabIndex = 64;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label12
             // 
@@ -107,6 +109,7 @@
             btnDelete.TabIndex = 61;
             btnDelete.Text = "DELETAR";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAtualizar
             // 
@@ -120,6 +123,7 @@
             btnAtualizar.TabIndex = 60;
             btnAtualizar.Text = "ATUALIZAR";
             btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnConfirm
             // 

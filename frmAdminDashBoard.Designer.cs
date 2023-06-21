@@ -109,6 +109,7 @@
             lblLogado.Size = new Size(55, 14);
             lblLogado.TabIndex = 16;
             lblLogado.Text = "Logged";
+            lblLogado.Click += lblLogado_Click;
             // 
             // MnuStripTop
             // 
