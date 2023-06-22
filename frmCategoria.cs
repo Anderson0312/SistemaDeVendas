@@ -22,7 +22,11 @@ namespace SistemaDeVendas
 
         categoriaBLL catBLL = new categoriaBLL();
         categoriaDAL catDAL = new categoriaDAL();
+
+
         frmLogin login = new frmLogin();
+
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,11 +38,9 @@ namespace SistemaDeVendas
             catBLL.description = txtDesc.Text;
             catBLL.added_date = DateTime.Now;
 
-            string userName = login.loggedIn();
-            Console.WriteLine($"ID do usuário '{userName}'");
-
-            //int userID = catDAL.GetIDFromUserName(userName);
-            catBLL.added_by = 1;
+            string loggedUser = frmLogin.loggedIn;
+            int user = userDAL.GetIDFromUserName(loggedUser);
+            catBLL.added_by = user;
 
 
 
@@ -79,6 +81,8 @@ namespace SistemaDeVendas
             dtgView.Columns[2].HeaderText = "Descrição";
             dtgView.Columns[3].HeaderText = "added_date";
             dtgView.Columns[4].HeaderText = "added_by";
+
+
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -102,7 +106,11 @@ namespace SistemaDeVendas
             catBLL.title = txtTituloCatego.Text;
             catBLL.description = txtDesc.Text;
             catBLL.added_date = DateTime.Now;
-            catBLL.added_by = 1;
+
+
+            string loggedUser = frmLogin.loggedIn;
+            int user = userDAL.GetIDFromUserName(loggedUser);
+            catBLL.added_by = user;
 
             bool success = catDAL.Update(catBLL);
             if (success == true)

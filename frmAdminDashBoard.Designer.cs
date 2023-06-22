@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             lbDateTime = new Label();
             label2 = new Label();
@@ -42,6 +43,7 @@
             transitionsToolStripMenuItem = new ToolStripMenuItem();
             transactionsToolStripMenuItem = new ToolStripMenuItem();
             labelFooter = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             MnuStripTop.SuspendLayout();
             SuspendLayout();
             // 
@@ -174,6 +176,10 @@
             labelFooter.Text = "Developement by Anderson Sistemas";
             labelFooter.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick_1;
+            // 
             // frmAdminDashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,5 +221,6 @@
         private ToolStripMenuItem transitionsToolStripMenuItem;
         private ToolStripMenuItem transactionsToolStripMenuItem;
         private Label labelFooter;
+        private System.Windows.Forms.Timer timer1;
     }
 }

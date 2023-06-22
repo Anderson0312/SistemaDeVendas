@@ -1,4 +1,6 @@
-﻿using SistemaDeVendas.BLLClasses;
+﻿using Sistema_Vendas.BLLClasses;
+using Sistema_Vendas.DALDados;
+using SistemaDeVendas.BLLClasses;
 using SistemaDeVendas.DALDados;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,9 @@ namespace SistemaDeVendas
 
         produtoBLL prodBLL = new produtoBLL();
         produtoDAL prodDAL = new produtoDAL();
+        userDAL userDAL = new userDAL();
+
+        categoriaDAL categoriaDAL = new categoriaDAL();
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -29,12 +34,16 @@ namespace SistemaDeVendas
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             prodBLL.name = txtNomeProd.Text;
-            prodBLL.category = Convert.ToInt32(txtCatProd.Text);
+            prodBLL.category = txtCatProd.Text;
             prodBLL.description = txtDescProd.Text;
             prodBLL.rate = Convert.ToDouble(txtPrecoProd.Text);
             prodBLL.gty = Convert.ToInt32(txtQuanti.Text);
             prodBLL.added_date = DateTime.Now;
-            prodBLL.added_by = 1;
+
+            //frmLogin frmLogin = new frmLogin();
+            string loggedUser = frmLogin.loggedIn; 
+            int user = userDAL.GetIDFromUserName(loggedUser);
+            prodBLL.added_by = user;
 
             if (prodBLL.name == "" || prodBLL.description == "")
             {
@@ -59,6 +68,7 @@ namespace SistemaDeVendas
 
         private void limparform()
         {
+            txtIDProd.Text = "";
             txtNomeProd.Text = "";
             txtCatProd.Text = "";
             txtDescProd.Text = "";
@@ -68,6 +78,11 @@ namespace SistemaDeVendas
 
         private void frmProduto_Load(object sender, EventArgs e)
         {
+            DataTable categoriaDT = categoriaDAL.Select();
+            txtCatProd.DataSource = categoriaDT;
+            txtCatProd.DisplayMember = "title";
+            txtCatProd.ValueMember = "title";
+
             DataTable dt = prodDAL.Select();
             dtgView.DataSource = dt;
             dtgView.Columns[0].HeaderText = "ID_Produto";
@@ -90,12 +105,15 @@ namespace SistemaDeVendas
             //convertentdo o id para int porque vem como txt do form
             prodBLL.id = Convert.ToInt32(txtIDProd.Text);
             prodBLL.name = txtNomeProd.Text;
-            prodBLL.category = Convert.ToInt32(txtCatProd.Text);
+            prodBLL.category = txtCatProd.Text;
             prodBLL.description = txtDescProd.Text;
             prodBLL.rate = Convert.ToDouble(txtPrecoProd.Text);
-            prodBLL.gty = Convert.ToDouble(txtQuanti.Text);
+            prodBLL.gty = Convert.ToInt32(txtQuanti.Text);
             prodBLL.added_date = DateTime.Now;
-            prodBLL.added_by = 1;
+
+            string loggedUser = frmLogin.loggedIn;
+            int user = userDAL.GetIDFromUserName(loggedUser);
+            prodBLL.added_by = user;
 
             bool success = prodDAL.Update(prodBLL);
             if (success == true)

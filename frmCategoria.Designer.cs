@@ -274,5 +274,6 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label label1;
+        private Label label5;
     }
 }

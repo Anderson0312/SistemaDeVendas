@@ -44,12 +44,12 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            txtCatProd = new TextBox();
             label5 = new Label();
             txtPrecoProd = new TextBox();
             label6 = new Label();
             txtQuanti = new TextBox();
             label7 = new Label();
+            txtCatProd = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -229,13 +229,6 @@
             label1.Text = "Cadastro de Produto";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtCatProd
-            // 
-            txtCatProd.Location = new Point(164, 149);
-            txtCatProd.Name = "txtCatProd";
-            txtCatProd.Size = new Size(292, 23);
-            txtCatProd.TabIndex = 67;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -280,17 +273,26 @@
             label7.TabIndex = 70;
             label7.Text = "Quantidade :";
             // 
+            // txtCatProd
+            // 
+            txtCatProd.FormattingEnabled = true;
+            txtCatProd.Items.AddRange(new object[] { "1" });
+            txtCatProd.Location = new Point(164, 148);
+            txtCatProd.Name = "txtCatProd";
+            txtCatProd.Size = new Size(292, 23);
+            txtCatProd.TabIndex = 72;
+            // 
             // frmProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(1133, 487);
+            Controls.Add(txtCatProd);
             Controls.Add(txtQuanti);
             Controls.Add(label7);
             Controls.Add(txtPrecoProd);
             Controls.Add(label6);
-            Controls.Add(txtCatProd);
             Controls.Add(label5);
             Controls.Add(dtgView);
             Controls.Add(txtSearch);
@@ -337,11 +339,11 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label label1;
-        private TextBox txtCatProd;
         private Label label5;
         private TextBox txtPrecoProd;
         private Label label6;
         private TextBox txtQuanti;
         private Label label7;
+        private ComboBox txtCatProd;
     }
 }

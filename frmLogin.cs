@@ -21,15 +21,11 @@ namespace SistemaDeVendas
 
         loginBLL l = new loginBLL();
         loginDAL loginD = new loginDAL();
- 
+        internal static string loggedIn;
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        public  string loggedIn()
-        {
-            return l.username;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -37,6 +33,7 @@ namespace SistemaDeVendas
             l.username = txtUsername.Text.Trim();
             l.password = txtPassword.Text.Trim();
             l.typeuser = cmbUserType.Text.Trim();
+            loggedIn = l.username;
 
             bool Success = loginD.loginCheck(l);
             if (Success == true)
@@ -49,8 +46,8 @@ namespace SistemaDeVendas
                             frmAdminDashBoard adm = new frmAdminDashBoard();
                             adm.Show();
                             adm.lblLogado.Text = l.username.ToUpper();
-                            adm.lbDateTime.Text = DateTime.Now.ToString();
                             this.Hide();
+
                         }
                         break;
                     case "Usuario":
@@ -73,6 +70,19 @@ namespace SistemaDeVendas
             {
                 MessageBox.Show("Não Foi Possivel Acessar!");
             }
+        }
+
+        public string ObterNomeUsuarioLogado()
+        {
+            // Nesse exemplo, estou usando uma variável estática para armazenar o usuário logado
+            // Você pode adaptar essa lógica de acordo com sua implementação real
+            // Aqui, estou apenas retornando o valor "Usuário Logado" como exemplo
+            return l.username;
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            l.username = txtUsername.Text.Trim();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace SistemaDeVendas
 
         private void frmAdminDashBoard_Load(object sender, EventArgs e)
         {
-
+            timer1.Start();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,6 +49,12 @@ namespace SistemaDeVendas
         private void lblLogado_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            this.lbDateTime.Text = date.ToString();
         }
     }
 }
