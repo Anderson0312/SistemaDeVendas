@@ -89,10 +89,10 @@ namespace SistemaDeVendas
             dtgView.Columns[1].HeaderText = "Nome";
             dtgView.Columns[2].HeaderText = "Categoria";
             dtgView.Columns[3].HeaderText = "Descrição";
-            dtgView.Columns[4].HeaderText = "rate";
-            dtgView.Columns[5].HeaderText = "qty";
-            dtgView.Columns[6].HeaderText = "added_date";
-            dtgView.Columns[7].HeaderText = "added_by";
+            dtgView.Columns[4].HeaderText = "Preço";
+            dtgView.Columns[5].HeaderText = "Quantidade";
+            dtgView.Columns[6].HeaderText = "Hora_data";
+            dtgView.Columns[7].HeaderText = "Adicionado_Por";
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)

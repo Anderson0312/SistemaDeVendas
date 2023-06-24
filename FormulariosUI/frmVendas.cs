@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaDeVendas
+namespace SistemaDeVendas.FormulariosUI
 {
-    public partial class frmUserDashBoard : Form
+    public partial class frmVendas : Form
     {
-        public frmUserDashBoard()
+        public frmVendas()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

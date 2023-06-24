@@ -79,8 +79,8 @@ namespace SistemaDeVendas
             dtgView.Columns[0].HeaderText = "ID_Categoria";
             dtgView.Columns[1].HeaderText = "Titulo";
             dtgView.Columns[2].HeaderText = "Descrição";
-            dtgView.Columns[3].HeaderText = "added_date";
-            dtgView.Columns[4].HeaderText = "added_by";
+            dtgView.Columns[3].HeaderText = "Data_hora";
+            dtgView.Columns[4].HeaderText = "Adicionado_Por";
 
 
         }

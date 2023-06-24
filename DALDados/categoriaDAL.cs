@@ -1,4 +1,5 @@
 ﻿using Sistema_Vendas.BLLClasses;
+using SistemaDeVendas.BLLClasses;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -189,6 +190,11 @@ namespace Sistema_Vendas.DALDados
 
 
         internal DataTable Search()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static bool Deletar(clienteBLL clienteBLL)
         {
             throw new NotImplementedException();
         }

@@ -41,7 +41,7 @@ namespace SistemaDeVendas
 
             if (u.first_name == "" || u.last_name == "" || u.email == "" || u.username == "" || u.password == "" || u.user_type == "")
             {
-                MessageBox.Show("Digit os Dados Para Inserir o Usuario");
+                MessageBox.Show("Digite os Dados Para Inserir o Usuario");
             }
             else
             {
@@ -168,11 +168,11 @@ namespace SistemaDeVendas
             dtgView.Columns[3].HeaderText = "Email";
             dtgView.Columns[4].HeaderText = "username";
             dtgView.Columns[5].HeaderText = "Senha";
-            dtgView.Columns[6].HeaderText = "Telefone";
+            dtgView.Columns[6].HeaderText = "Contato";
             dtgView.Columns[7].HeaderText = "Endereço";
             dtgView.Columns[8].HeaderText = "Sexo";
             dtgView.Columns[9].HeaderText = "Tipo_Usuario";
-            dtgView.Columns[10].HeaderText = "Data_Hora";
+            dtgView.Columns[10].HeaderText = "Data_hora";
             dtgView.Columns[11].HeaderText = "Cadastrado_Por";
         }
     }

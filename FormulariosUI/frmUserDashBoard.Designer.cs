@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             lbDateTime = new Label();
             label2 = new Label();
@@ -37,8 +38,10 @@
             MnuStripTop = new MenuStrip();
             usersToolStripMenuItem = new ToolStripMenuItem();
             categoryToolStripMenuItem = new ToolStripMenuItem();
+            clienteToolStripMenuItem = new ToolStripMenuItem();
             productsToolStripMenuItem = new ToolStripMenuItem();
             labelFooter = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             MnuStripTop.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,7 +112,7 @@
             // MnuStripTop
             // 
             MnuStripTop.BackColor = SystemColors.InactiveCaption;
-            MnuStripTop.Items.AddRange(new ToolStripItem[] { usersToolStripMenuItem, categoryToolStripMenuItem, productsToolStripMenuItem });
+            MnuStripTop.Items.AddRange(new ToolStripItem[] { usersToolStripMenuItem, categoryToolStripMenuItem, clienteToolStripMenuItem, productsToolStripMenuItem });
             MnuStripTop.Location = new Point(0, 0);
             MnuStripTop.Name = "MnuStripTop";
             MnuStripTop.Padding = new Padding(6, 4, 0, 4);
@@ -119,21 +122,33 @@
             // 
             // usersToolStripMenuItem
             // 
+            usersToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(39, 19);
-            usersToolStripMenuItem.Text = "Buy";
+            usersToolStripMenuItem.Size = new Size(62, 19);
+            usersToolStripMenuItem.Text = "Compra";
             // 
             // categoryToolStripMenuItem
             // 
+            categoryToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            categoryToolStripMenuItem.Size = new Size(45, 19);
-            categoryToolStripMenuItem.Text = "Sales";
+            categoryToolStripMenuItem.Size = new Size(53, 19);
+            categoryToolStripMenuItem.Text = "Venda";
+            categoryToolStripMenuItem.Click += categoryToolStripMenuItem_Click;
+            // 
+            // clienteToolStripMenuItem
+            // 
+            clienteToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            clienteToolStripMenuItem.Size = new Size(58, 19);
+            clienteToolStripMenuItem.Text = "Cliente";
+            clienteToolStripMenuItem.Click += clienteToolStripMenuItem_Click;
             // 
             // productsToolStripMenuItem
             // 
+            productsToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            productsToolStripMenuItem.Size = new Size(69, 19);
-            productsToolStripMenuItem.Text = "Inventory";
+            productsToolStripMenuItem.Size = new Size(77, 19);
+            productsToolStripMenuItem.Text = "Inventario";
             // 
             // labelFooter
             // 
@@ -146,6 +161,10 @@
             labelFooter.TabIndex = 21;
             labelFooter.Text = "Developement by Anderson Sistemas";
             labelFooter.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // frmUserDashBoard
             // 
@@ -165,6 +184,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Painel Usuario";
             WindowState = FormWindowState.Maximized;
+            Load += frmUserDashBoard_Load;
             MnuStripTop.ResumeLayout(false);
             MnuStripTop.PerformLayout();
             ResumeLayout(false);
@@ -184,5 +204,7 @@
         private ToolStripMenuItem categoryToolStripMenuItem;
         private ToolStripMenuItem productsToolStripMenuItem;
         private Label labelFooter;
+        private ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }

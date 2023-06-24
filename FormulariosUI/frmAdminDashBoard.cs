@@ -56,5 +56,11 @@ namespace SistemaDeVendas
             DateTime date = DateTime.Now;
             this.lbDateTime.Text = date.ToString();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCliente cliente = new frmCliente();
+            cliente.Show();
+        }
     }
 }

@@ -39,9 +39,9 @@
             usersToolStripMenuItem = new ToolStripMenuItem();
             categoryToolStripMenuItem = new ToolStripMenuItem();
             productsToolStripMenuItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             invoiceToolStripMenuItem = new ToolStripMenuItem();
             transitionsToolStripMenuItem = new ToolStripMenuItem();
-            transactionsToolStripMenuItem = new ToolStripMenuItem();
             labelFooter = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             MnuStripTop.SuspendLayout();
@@ -116,7 +116,7 @@
             // MnuStripTop
             // 
             MnuStripTop.BackColor = SystemColors.InactiveCaption;
-            MnuStripTop.Items.AddRange(new ToolStripItem[] { usersToolStripMenuItem, categoryToolStripMenuItem, productsToolStripMenuItem, invoiceToolStripMenuItem, transitionsToolStripMenuItem });
+            MnuStripTop.Items.AddRange(new ToolStripItem[] { usersToolStripMenuItem, categoryToolStripMenuItem, productsToolStripMenuItem, clientesToolStripMenuItem, invoiceToolStripMenuItem, transitionsToolStripMenuItem });
             MnuStripTop.Location = new Point(0, 0);
             MnuStripTop.Name = "MnuStripTop";
             MnuStripTop.Padding = new Padding(6, 4, 0, 4);
@@ -126,43 +126,49 @@
             // 
             // usersToolStripMenuItem
             // 
+            usersToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(47, 19);
-            usersToolStripMenuItem.Text = "Users";
+            usersToolStripMenuItem.Size = new Size(61, 19);
+            usersToolStripMenuItem.Text = "Usuario";
             usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // categoryToolStripMenuItem
             // 
+            categoryToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            categoryToolStripMenuItem.Size = new Size(67, 19);
-            categoryToolStripMenuItem.Text = "Category";
+            categoryToolStripMenuItem.Size = new Size(72, 19);
+            categoryToolStripMenuItem.Text = "Categoria";
             categoryToolStripMenuItem.Click += categoryToolStripMenuItem_Click;
             // 
             // productsToolStripMenuItem
             // 
+            productsToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            productsToolStripMenuItem.Size = new Size(66, 19);
-            productsToolStripMenuItem.Text = "Products";
+            productsToolStripMenuItem.Size = new Size(64, 19);
+            productsToolStripMenuItem.Text = "Produto";
             productsToolStripMenuItem.Click += productsToolStripMenuItem_Click;
+            // 
+            // clientesToolStripMenuItem
+            // 
+            clientesToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(58, 19);
+            clientesToolStripMenuItem.Text = "Cliente";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // invoiceToolStripMenuItem
             // 
+            invoiceToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             invoiceToolStripMenuItem.Name = "invoiceToolStripMenuItem";
-            invoiceToolStripMenuItem.Size = new Size(57, 19);
-            invoiceToolStripMenuItem.Text = "Invoice";
+            invoiceToolStripMenuItem.Size = new Size(77, 19);
+            invoiceToolStripMenuItem.Text = "Inventario";
             // 
             // transitionsToolStripMenuItem
             // 
-            transitionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { transactionsToolStripMenuItem });
+            transitionsToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             transitionsToolStripMenuItem.Name = "transitionsToolStripMenuItem";
-            transitionsToolStripMenuItem.Size = new Size(75, 19);
-            transitionsToolStripMenuItem.Text = "Transitions";
-            // 
-            // transactionsToolStripMenuItem
-            // 
-            transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            transactionsToolStripMenuItem.Size = new Size(139, 22);
-            transactionsToolStripMenuItem.Text = "Transactions";
+            transitionsToolStripMenuItem.Size = new Size(79, 19);
+            transitionsToolStripMenuItem.Text = "Transações";
             // 
             // labelFooter
             // 
@@ -219,8 +225,8 @@
         private ToolStripMenuItem productsToolStripMenuItem;
         private ToolStripMenuItem invoiceToolStripMenuItem;
         private ToolStripMenuItem transitionsToolStripMenuItem;
-        private ToolStripMenuItem transactionsToolStripMenuItem;
         private Label labelFooter;
         private System.Windows.Forms.Timer timer1;
+        private ToolStripMenuItem clientesToolStripMenuItem;
     }
 }
