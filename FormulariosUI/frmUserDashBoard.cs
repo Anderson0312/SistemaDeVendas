@@ -18,6 +18,8 @@ namespace SistemaDeVendas
             InitializeComponent();
         }
 
+        public static string transactionType;
+
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCliente frmCliente = new frmCliente();
@@ -37,8 +39,18 @@ namespace SistemaDeVendas
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVendas frmVendas = new frmVendas();  
-            frmVendas.ShowDialog(); 
+            transactionType = "Venda";
+            frmVendas Vendas = new frmVendas();
+            Vendas.ShowDialog();
+            
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            transactionType = "Compra";
+            frmVendas Compras = new frmVendas();
+            Compras.ShowDialog();
+            
         }
     }
 }

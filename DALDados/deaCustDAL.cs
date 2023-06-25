@@ -1,16 +1,17 @@
-﻿using Sistema_Vendas.BLLClasses;
+﻿using SistemaDeVendas.BLLClasses;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
-using System.Configuration;
-using SistemaDeVendas.BLLClasses;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SistemaDeVendas.DALDados
 {
-    internal class produtoDAL
+    internal class deaCustDAL
     {
-
         static string myconnstring = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
 
         #region metodo de selecionar 
@@ -22,7 +23,7 @@ namespace SistemaDeVendas.DALDados
 
             try
             {
-                String sql = "SELECT * FROM tbl_product";
+                String sql = "SELECT * FROM tbl_dea_cust";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
@@ -44,21 +45,21 @@ namespace SistemaDeVendas.DALDados
         #endregion
 
         #region Inserir dados no banco de dados
-        public bool Insert(produtoBLL p)
+        public bool Insert(deaCustBLL deaC)
         {
             bool isSuccess = false;
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "INSERT INTO tbl_product(name, category, description, rate, gty, added_date, added_by) VALUES (@name, @category, @description, @rate, @gty, @added_date, @added_by)";
+                String sql = "INSERT INTO tbl_dea_cust(type, name, email, contact, address, added_date, added_by) VALUES (@type, @name, @email, @contact, @address, @added_date, @added_by)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@name", p.name);
-                cmd.Parameters.AddWithValue("@category", p.category);
-                cmd.Parameters.AddWithValue("@description", p.description);
-                cmd.Parameters.AddWithValue("@rate", p.rate);
-                cmd.Parameters.AddWithValue("@gty", p.gty);
-                cmd.Parameters.AddWithValue("@added_date", p.added_date);
-                cmd.Parameters.AddWithValue("@added_by", p.added_by);
+                cmd.Parameters.AddWithValue("@type", deaC.type);
+                cmd.Parameters.AddWithValue("@name", deaC.name);
+                cmd.Parameters.AddWithValue("@email", deaC.email);
+                cmd.Parameters.AddWithValue("@contact", deaC.contact);
+                cmd.Parameters.AddWithValue("@address", deaC.address);
+                cmd.Parameters.AddWithValue("@added_date", deaC.added_date);
+                cmd.Parameters.AddWithValue("@added_by", deaC.added_by);
 
                 conn.Open();
 
@@ -88,22 +89,22 @@ namespace SistemaDeVendas.DALDados
         #endregion
 
         #region atualizar os dados do banco
-        public bool Update(produtoBLL p)
+        public bool Update(deaCustBLL deaC)
         {
             bool isSuccess = false;
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "UPDATE tbl_product SET name =@name, category=@category ,description = @description, rate = @rate, gty=@gty, added_date = @added_date, added_by= @added_by WHERE id = @id";
+                String sql = "UPDATE tbl_dea_cust SET type =@type, name=@name ,email = @email, contact = @contact, address=@address, added_date = @added_date, added_by= @added_by WHERE id = @id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", p.id);
-                cmd.Parameters.AddWithValue("@name", p.name);
-                cmd.Parameters.AddWithValue("@category", p.category);
-                cmd.Parameters.AddWithValue("@description", p.description);
-                cmd.Parameters.AddWithValue("@rate", p.rate);
-                cmd.Parameters.AddWithValue("@gty", p.gty);
-                cmd.Parameters.AddWithValue("@added_date", p.added_date);
-                cmd.Parameters.AddWithValue("@added_by", p.added_by);
+                cmd.Parameters.AddWithValue("@id", deaC.id);
+                cmd.Parameters.AddWithValue("@type", deaC.type);
+                cmd.Parameters.AddWithValue("@name", deaC.name);
+                cmd.Parameters.AddWithValue("@email", deaC.email);
+                cmd.Parameters.AddWithValue("@contact", deaC.contact);
+                cmd.Parameters.AddWithValue("@address", deaC.address);
+                cmd.Parameters.AddWithValue("@added_date", deaC.added_date);
+                cmd.Parameters.AddWithValue("@added_by", deaC.added_by);
 
 
                 conn.Open();
@@ -134,15 +135,15 @@ namespace SistemaDeVendas.DALDados
         #endregion
 
         #region Deleta os dados do banco
-        public bool Deletar(produtoBLL p)
+        public bool Deletar(deaCustBLL deaC)
         {
             bool isSuccess = false;
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "DELETE FROM tbl_product WHERE id=@id";
+                String sql = "DELETE FROM tbl_dea_cust WHERE id=@id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", p.id);
+                cmd.Parameters.AddWithValue("@id", deaC.id);
 
                 conn.Open();
 
@@ -178,7 +179,7 @@ namespace SistemaDeVendas.DALDados
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT * FROM tbl_product WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR description LIKE '%" + keywords + "%'";
+                String sql = "SELECT * FROM tbl_dea_cust WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR type LIKE '%" + keywords + "%'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
@@ -193,19 +194,18 @@ namespace SistemaDeVendas.DALDados
             finally { conn.Close(); }
             return dt;
             #endregion
-
         }
 
-        #region metodo de pesquisa para pesquisar produto
-        public produtoBLL SearchDealerCustomerForTransaction(string keywords)
+        #region metodo de pesquisa para pesquisar cliente
+        public deaCustBLL SearchDealerCustomerForTransaction(string keywords)
         {
 
-            produtoBLL pBLL = new produtoBLL();
+            deaCustBLL dc = new deaCustBLL();
             SqlConnection conn = new SqlConnection(myconnstring);
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT name, rate, gty FROM tbl_product WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords +"%' ";
+                String sql = "SELECT name, email, contact, address FROM tbl_dea_cust WHERE id LIKE '%" + keywords + "%' ";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
@@ -213,10 +213,10 @@ namespace SistemaDeVendas.DALDados
 
                 if (dt.Rows.Count > 0)
                 {
-                    pBLL.name = dt.Rows[0]["name"].ToString();
-                    pBLL.rate = double.Parse(dt.Rows[0]["rate"].ToString());
-                    pBLL.gty = int.Parse(dt.Rows[0]["gty"].ToString());
-
+                    dc.name = dt.Rows[0]["name"].ToString();
+                    dc.email = dt.Rows[0]["email"].ToString();
+                    dc.contact = dt.Rows[0]["contact"].ToString();
+                    dc.address = dt.Rows[0]["address"].ToString();
                 }
 
             }
@@ -225,13 +225,8 @@ namespace SistemaDeVendas.DALDados
                 MessageBox.Show(ex.Message);
             }
             finally { conn.Close(); }
-            return pBLL;
+            return dc;
         }
         #endregion
-
-        internal DataTable Search()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

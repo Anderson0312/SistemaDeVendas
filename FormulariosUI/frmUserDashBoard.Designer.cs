@@ -126,6 +126,7 @@
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             usersToolStripMenuItem.Size = new Size(62, 19);
             usersToolStripMenuItem.Text = "Compra";
+            usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // categoryToolStripMenuItem
             // 

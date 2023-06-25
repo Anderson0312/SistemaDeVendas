@@ -1,14 +1,16 @@
-﻿using Sistema_Vendas.BLLClasses;
+﻿using SistemaDeVendas.BLLClasses;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
-using System.Configuration;
-using SistemaDeVendas.BLLClasses;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SistemaDeVendas.DALDados
 {
-    internal class produtoDAL
+    internal class transactionDAL
     {
 
         static string myconnstring = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
@@ -22,7 +24,7 @@ namespace SistemaDeVendas.DALDados
 
             try
             {
-                String sql = "SELECT * FROM tbl_product";
+                String sql = "SELECT * FROM tbl_transaction";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
@@ -44,28 +46,30 @@ namespace SistemaDeVendas.DALDados
         #endregion
 
         #region Inserir dados no banco de dados
-        public bool Insert(produtoBLL p)
+        public bool Insert(transictionBLL trans, out int transactionID)
         {
             bool isSuccess = false;
+            transactionID = -1;
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "INSERT INTO tbl_product(name, category, description, rate, gty, added_date, added_by) VALUES (@name, @category, @description, @rate, @gty, @added_date, @added_by)";
+                String sql = "INSERT INTO tbl_transaction(type, dea_cust_id, grandTotal, transaction_date, tax, discount, acced_by) VALUES (@type, @dea_cust_id, @grandTotal, @transaction_date, @tax, @discount, @acced_by)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@name", p.name);
-                cmd.Parameters.AddWithValue("@category", p.category);
-                cmd.Parameters.AddWithValue("@description", p.description);
-                cmd.Parameters.AddWithValue("@rate", p.rate);
-                cmd.Parameters.AddWithValue("@gty", p.gty);
-                cmd.Parameters.AddWithValue("@added_date", p.added_date);
-                cmd.Parameters.AddWithValue("@added_by", p.added_by);
+                cmd.Parameters.AddWithValue("@type", trans.type);
+                cmd.Parameters.AddWithValue("@dea_cust_id", trans.dea_cust_id);
+                cmd.Parameters.AddWithValue("@grandTotal", trans.grandTotal);
+                cmd.Parameters.AddWithValue("@transaction_date", trans.transaction_date);
+                cmd.Parameters.AddWithValue("@tax", trans.tax);
+                cmd.Parameters.AddWithValue("@discount", trans.discount);
+                cmd.Parameters.AddWithValue("@acced_by", trans.acced_by);
 
                 conn.Open();
 
-                int rows = cmd.ExecuteNonQuery();
+                object o = cmd.ExecuteScalar();
 
-                if (rows > 0)
+                if (o != null)
                 {
+                    transactionID = int.Parse(o.ToString());
                     isSuccess = true;
                 }
                 else
@@ -88,23 +92,22 @@ namespace SistemaDeVendas.DALDados
         #endregion
 
         #region atualizar os dados do banco
-        public bool Update(produtoBLL p)
+        public bool Update(transictionBLL trans)
         {
             bool isSuccess = false;
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "UPDATE tbl_product SET name =@name, category=@category ,description = @description, rate = @rate, gty=@gty, added_date = @added_date, added_by= @added_by WHERE id = @id";
+                String sql = "UPDATE tbl_transaction SET type =@type, dea_cust_id=@dea_cust_id ,grandTotal = @grandTotal, transaction_date = @transaction_date, tax=@tax, discount = @discount, acced_by= @acced_by WHERE id = @id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", p.id);
-                cmd.Parameters.AddWithValue("@name", p.name);
-                cmd.Parameters.AddWithValue("@category", p.category);
-                cmd.Parameters.AddWithValue("@description", p.description);
-                cmd.Parameters.AddWithValue("@rate", p.rate);
-                cmd.Parameters.AddWithValue("@gty", p.gty);
-                cmd.Parameters.AddWithValue("@added_date", p.added_date);
-                cmd.Parameters.AddWithValue("@added_by", p.added_by);
-
+                cmd.Parameters.AddWithValue("@id", trans.id);
+                cmd.Parameters.AddWithValue("@type", trans.type);
+                cmd.Parameters.AddWithValue("@dea_cust_id", trans.dea_cust_id);
+                cmd.Parameters.AddWithValue("@grandTotal", trans.grandTotal);
+                cmd.Parameters.AddWithValue("@transaction_date", trans.transaction_date);
+                cmd.Parameters.AddWithValue("@tax", trans.tax);
+                cmd.Parameters.AddWithValue("@discount", trans.discount);
+                cmd.Parameters.AddWithValue("@acced_by", trans.acced_by);
 
                 conn.Open();
 
@@ -140,7 +143,7 @@ namespace SistemaDeVendas.DALDados
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "DELETE FROM tbl_product WHERE id=@id";
+                String sql = "DELETE FROM tbl_transaction WHERE id=@id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", p.id);
 
@@ -178,7 +181,7 @@ namespace SistemaDeVendas.DALDados
             DataTable dt = new DataTable();
             try
             {
-                String sql = "SELECT * FROM tbl_product WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR description LIKE '%" + keywords + "%'";
+                String sql = "SELECT * FROM tbl_transaction WHERE id LIKE '%" + keywords + "%' OR type LIKE '%" + keywords + "%' OR dea_cust_id LIKE '%" + keywords + "%'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
@@ -194,44 +197,6 @@ namespace SistemaDeVendas.DALDados
             return dt;
             #endregion
 
-        }
-
-        #region metodo de pesquisa para pesquisar produto
-        public produtoBLL SearchDealerCustomerForTransaction(string keywords)
-        {
-
-            produtoBLL pBLL = new produtoBLL();
-            SqlConnection conn = new SqlConnection(myconnstring);
-            DataTable dt = new DataTable();
-            try
-            {
-                String sql = "SELECT name, rate, gty FROM tbl_product WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords +"%' ";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                conn.Open();
-                adapter.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                    pBLL.name = dt.Rows[0]["name"].ToString();
-                    pBLL.rate = double.Parse(dt.Rows[0]["rate"].ToString());
-                    pBLL.gty = int.Parse(dt.Rows[0]["gty"].ToString());
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally { conn.Close(); }
-            return pBLL;
-        }
-        #endregion
-
-        internal DataTable Search()
-        {
-            throw new NotImplementedException();
         }
     }
 }

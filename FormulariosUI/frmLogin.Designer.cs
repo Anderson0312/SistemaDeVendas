@@ -80,6 +80,7 @@
             cmbUserType.Name = "cmbUserType";
             cmbUserType.Size = new Size(321, 23);
             cmbUserType.TabIndex = 6;
+            cmbUserType.Text = "Usuario\t";
             // 
             // label4
             // 
