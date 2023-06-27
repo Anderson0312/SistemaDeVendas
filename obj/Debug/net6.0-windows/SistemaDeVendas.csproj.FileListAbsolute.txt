@@ -31,3 +31,5 @@ C:\Users\ander\source\repos\SistemaDeVendas\obj\Debug\net6.0-windows\SistemaDeVe
 C:\Users\ander\source\repos\SistemaDeVendas\obj\Debug\net6.0-windows\SistemaDeVendas.frmProduto.resources
 C:\Users\ander\source\repos\SistemaDeVendas\obj\Debug\net6.0-windows\SistemaDeVendas.frmCliente.resources
 C:\Users\ander\source\repos\SistemaDeVendas\obj\Debug\net6.0-windows\SistemaDeVendas.FormulariosUI.frmVendas.resources
+C:\Users\ander\source\repos\SistemaDeVendas\obj\Debug\net6.0-windows\Interop.COMSVCSLib.dll
+C:\Users\ander\source\repos\SistemaDeVendas\obj\Debug\net6.0-windows\SistemaDeVendas.csproj.ResolveComReference.cache

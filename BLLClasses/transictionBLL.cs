@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,7 @@ namespace SistemaDeVendas.BLLClasses
         public decimal tax { get; set; }
         public decimal discount { get; set; }
         public int acced_by { get; set; }
+
+        public DataTable transacaoDetalhes { get; set; }
     }
 }

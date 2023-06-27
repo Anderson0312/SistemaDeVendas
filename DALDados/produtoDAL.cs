@@ -229,6 +229,39 @@ namespace SistemaDeVendas.DALDados
         }
         #endregion
 
+        #region metodo de pesquisa para pega o id pelo nome do produto
+        public static produtoBLL SearchCustomerForNomeProd(string nomeProduto)
+        {
+
+            produtoBLL pBLL = new produtoBLL();
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT id FROM tbl_product WHERE name LIKE '%" + nomeProduto + "%' ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    pBLL.id = int.Parse(dt.Rows[0]["id"].ToString());
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { conn.Close(); }
+            return pBLL;
+        }
+        #endregion
+
+
         internal DataTable Search()
         {
             throw new NotImplementedException();

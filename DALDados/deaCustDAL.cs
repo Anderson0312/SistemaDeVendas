@@ -228,5 +228,36 @@ namespace SistemaDeVendas.DALDados
             return dc;
         }
         #endregion
+
+        #region metodo de pesquisa para pegar o id do cliente pelo nome
+        public deaCustBLL SearchDealerIDName(string Nome)
+        {
+
+            deaCustBLL dc = new deaCustBLL();
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT id FROM tbl_dea_cust WHERE name LIKE '%" + Nome + "%' ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    dc.id = int.Parse(dt.Rows[0]["id"].ToString());
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { conn.Close(); }
+            return dc;
+        }
+        #endregion
     }
 }

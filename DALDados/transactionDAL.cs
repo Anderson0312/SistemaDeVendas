@@ -46,14 +46,14 @@ namespace SistemaDeVendas.DALDados
         #endregion
 
         #region Inserir dados no banco de dados
-        public bool Insert(transictionBLL trans, out int transactionID)
+        public static bool Insert(transictionBLL trans, out int transactionID)
         {
             bool isSuccess = false;
             transactionID = -1;
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "INSERT INTO tbl_transaction(type, dea_cust_id, grandTotal, transaction_date, tax, discount, acced_by) VALUES (@type, @dea_cust_id, @grandTotal, @transaction_date, @tax, @discount, @acced_by)";
+                String sql = "INSERT INTO tbl_transaction(type, dea_cust_id, grandTotal, transaction_date, tax, discount, acced_by) VALUES (@type, @dea_cust_id, @grandTotal, @transaction_date, @tax, @discount, @acced_by);SELECT @@IDENTITY";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@type", trans.type);
                 cmd.Parameters.AddWithValue("@dea_cust_id", trans.dea_cust_id);

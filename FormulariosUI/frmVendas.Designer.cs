@@ -33,6 +33,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
+            cmbData = new DateTimePicker();
             txtEndercoCliente = new TextBox();
             label8 = new Label();
             label7 = new Label();
@@ -76,7 +77,6 @@
             txtSubTotal = new TextBox();
             label19 = new Label();
             label21 = new Label();
-            cmbData = new DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -153,6 +153,13 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1186, 115);
             panel2.TabIndex = 33;
+            // 
+            // cmbData
+            // 
+            cmbData.Location = new Point(889, 34);
+            cmbData.Name = "cmbData";
+            cmbData.Size = new Size(280, 23);
+            cmbData.TabIndex = 36;
             // 
             // txtEndercoCliente
             // 
@@ -536,6 +543,7 @@
             btnFinalizar.TabIndex = 38;
             btnFinalizar.Text = "FINALIZAR VENDA";
             btnFinalizar.UseVisualStyleBackColor = false;
+            btnFinalizar.Click += btnFinalizar_Click;
             // 
             // txtDescont
             // 
@@ -585,13 +593,6 @@
             label21.Size = new Size(167, 21);
             label21.TabIndex = 0;
             label21.Text = "DETALHES CALCULO :";
-            // 
-            // cmbData
-            // 
-            cmbData.Location = new Point(889, 34);
-            cmbData.Name = "cmbData";
-            cmbData.Size = new Size(280, 23);
-            cmbData.TabIndex = 36;
             // 
             // frmVendas
             // 

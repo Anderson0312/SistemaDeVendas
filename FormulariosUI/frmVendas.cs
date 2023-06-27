@@ -1,4 +1,6 @@
-﻿using SistemaDeVendas.BLLClasses;
+﻿using Sistema_Vendas.BLLClasses;
+using Sistema_Vendas.DALDados;
+using SistemaDeVendas.BLLClasses;
 using SistemaDeVendas.DALDados;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace SistemaDeVendas.FormulariosUI
@@ -144,6 +147,84 @@ namespace SistemaDeVendas.FormulariosUI
                 txtTroco.Text = troco.ToString();
 
             }
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            transictionBLL transaction = new transictionBLL();
+            transaction.type = lblTopo.Text;
+
+            string distClientName = txtNomeCli.Text;
+            deaCustBLL deaDLL  = dcDal.SearchDealerIDName(distClientName);
+            transaction.dea_cust_id = deaDLL.id;
+            transaction.grandTotal = Math.Round(decimal.Parse(txtTotalGeral.Text), 2);
+            transaction.transaction_date = DateTime.Now;
+            transaction.tax = 0; //Valor declarado 0 pois não foi implementado no sistema ainda
+            transaction.discount = decimal.Parse(txtDescont.Text);
+
+            string usuario = frmLogin.loggedIn;
+            int id = userDAL.GetIDFromUserName(usuario);
+            transaction.acced_by = id;
+            transaction.transacaoDetalhes = transactionDT;
+
+            bool success = false;
+
+            using (TransactionScope scrope = new TransactionScope())
+            {
+                int transacaoId = -1;
+
+                bool w = transactionDAL.Insert(transaction, out transacaoId);
+                for(int i = 0; i < transactionDT.Rows.Count; i++)
+                {
+                    transactionDetailBLL transactionDetail = new transactionDetailBLL();
+                    string produtoNome = transactionDT.Rows[1][0].ToString();
+                    produtoBLL p = produtoDAL.SearchCustomerForNomeProd(produtoNome);
+
+                    transactionDetail.id = p.id;
+                    transactionDetail.dty = decimal.Parse(transactionDT.Rows[1][2].ToString());
+                    transactionDetail.total = Math.Round(decimal.Parse(transactionDT.Rows[1][3].ToString()));
+
+                    transactionDetail.dea_cust_id = deaDLL.id;
+                    transactionDetail.added_date = DateTime.Now;
+                    transactionDetail.added_by = id;
+
+                    bool y = transactionDetailDAL.InsertTransactionDatail(transactionDetail);
+                    //transação = w /inserir = y
+                    success = w && y;
+                }
+
+                if (success == true)
+                {
+                    scrope.Complete();
+                    MessageBox.Show("DADOS SALVOS COM SUCESSO");
+                    dgvAddedProducts.DataSource = null;
+                    dgvAddedProducts.Rows.Clear();
+
+                    txtNomeCli.Text = "";
+                    txtEmailCli.Text = "";
+                    txtContatoCli.Text = "";
+                    txtEndercoCliente.Text = "";
+                    txtNomeProd.Text = "";
+                    txtInventario.Text = "";
+                    txtQuanti.Text = "";
+                    txtValor.Text = "";
+                    txtsearchProd.Text = "";
+                    txtNomeProd.Text = "";
+                    txtInventario.Text = "";
+                    txtValor.Text = "";
+                    txtQuanti.Text = "";
+                    txtSubTotal.Text = "";
+                    txtDescont.Text = "";
+                    txtTotalGeral.Text = "";
+                    txtTotalPago.Text = " ";
+                    txtTroco.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("NÃO FOI POSSIVEL SALVAR OS DADOS");
+                }
+            }
+
         }
     }
 }

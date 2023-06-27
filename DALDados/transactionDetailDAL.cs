@@ -14,9 +14,9 @@ namespace SistemaDeVendas.DALDados
         static string myconnstring = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
 
         #region Inserir dados no banco de dados
-        public bool InsertTransactionDatail(transactionDetailBLL transD)
+        public static bool InsertTransactionDatail(transactionDetailBLL transD)
         {
-            bool isSuccess = false;
+            bool isSuccess = false; 
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {

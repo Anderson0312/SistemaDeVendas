@@ -9,6 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <COMReference Include="COMSVCSLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>74c08640-cedb-11cf-8b49-00aa00b8a790</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
