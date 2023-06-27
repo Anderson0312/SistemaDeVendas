@@ -20,7 +20,7 @@ namespace SistemaDeVendas.DALDados
             SqlConnection conn = new SqlConnection(myconnstring);
             try
             {
-                String sql = "INSERT INTO tbl_transaction_datail(product_id, rate, dty, total, dea_cust_id, added_date, added_by) VALUES (@product_id, @rate, @dty, @total, @dea_cust_id, @added_date, @added_by)";
+                String sql = "INSERT INTO tbl_transaction_dateil(product_id, rate, dty, total, dea_cust_id, added_date, added_by) VALUES (@product_id, @rate, @dty, @total, @dea_cust_id, @added_date, @added_by)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@product_id", transD.product_id);
                 cmd.Parameters.AddWithValue("@rate", transD.rate);

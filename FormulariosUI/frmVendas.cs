@@ -200,6 +200,7 @@ namespace SistemaDeVendas.FormulariosUI
                     dgvAddedProducts.DataSource = null;
                     dgvAddedProducts.Rows.Clear();
 
+                    txtSearchCli.Text = "";
                     txtNomeCli.Text = "";
                     txtEmailCli.Text = "";
                     txtContatoCli.Text = "";
@@ -213,11 +214,11 @@ namespace SistemaDeVendas.FormulariosUI
                     txtInventario.Text = "";
                     txtValor.Text = "";
                     txtQuanti.Text = "";
-                    txtSubTotal.Text = "";
-                    txtDescont.Text = "";
-                    txtTotalGeral.Text = "";
-                    txtTotalPago.Text = " ";
-                    txtTroco.Text = "";
+                    txtSubTotal.Text = "0";
+                    txtDescont.Text = "0";
+                    txtTotalGeral.Text = "0";
+                    txtTotalPago.Text = "0";
+                    txtTroco.Text = "0";
                 }
                 else
                 {
