@@ -1,4 +1,5 @@
-﻿using Sistema_Vendas.BLLClasses;
+﻿using DGVPrinterHelper;
+using Sistema_Vendas.BLLClasses;
 using Sistema_Vendas.DALDados;
 using SistemaDeVendas.BLLClasses;
 using SistemaDeVendas.DALDados;
@@ -92,7 +93,7 @@ namespace SistemaDeVendas.FormulariosUI
             decimal subtotal = decimal.Parse(txtSubTotal.Text);
             subtotal = subtotal + Total;
 
-            if (produtctName == "")
+            if (produtctName == "" )
             {
                 MessageBox.Show("FAVOR DIGITAR NOME DO PRODUTO");
             }
@@ -116,10 +117,11 @@ namespace SistemaDeVendas.FormulariosUI
         private void txtDescont_TextChanged(object sender, EventArgs e)
         {
             string value = txtDescont.Text;
-            if (value == "")
+
+
+            if (string.IsNullOrEmpty(value) )
             {
                 MessageBox.Show("DIGITE O DESCONTO PARA ESTÁ VENDA");
-
             }
             else
             {
@@ -134,7 +136,7 @@ namespace SistemaDeVendas.FormulariosUI
         private void txtTotalPago_TextChanged(object sender, EventArgs e)
         {
             string valuepago = txtTotalPago.Text;
-            if (valuepago == "")
+            if (string.IsNullOrEmpty(valuepago))
             {
                 MessageBox.Show("DIGITE O TATAL PAGO PARA FINALIZAR");
             }
@@ -151,15 +153,16 @@ namespace SistemaDeVendas.FormulariosUI
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
+            if (txtTotalGeral.Text != "") { 
             transictionBLL transaction = new transictionBLL();
             transaction.type = lblTopo.Text;
 
             string distClientName = txtNomeCli.Text;
-            deaCustBLL deaDLL  = dcDal.SearchDealerIDName(distClientName);
+            deaCustBLL deaDLL = dcDal.SearchDealerIDName(distClientName);
             transaction.dea_cust_id = deaDLL.id;
             transaction.grandTotal = Math.Round(decimal.Parse(txtTotalGeral.Text), 2);
             transaction.transaction_date = DateTime.Now;
-            transaction.tax = 0; //Valor declarado 0 pois não foi implementado no sistema ainda
+            transaction.tax = 0; //Valor declarado 0 pois não foi implementado imposto no sistema ainda
             transaction.discount = decimal.Parse(txtDescont.Text);
 
             string usuario = frmLogin.loggedIn;
@@ -174,31 +177,64 @@ namespace SistemaDeVendas.FormulariosUI
                 int transacaoId = -1;
 
                 bool w = transactionDAL.Insert(transaction, out transacaoId);
-                for(int i = 0; i < transactionDT.Rows.Count; i++)
+                for (int i = 0; i < transactionDT.Rows.Count; i++)
                 {
                     transactionDetailBLL transactionDetail = new transactionDetailBLL();
-                    string produtoNome = transactionDT.Rows[1][0].ToString();
+                    string produtoNome = transactionDT.Rows[i][0].ToString();
                     produtoBLL p = produtoDAL.SearchCustomerForNomeProd(produtoNome);
 
-                    transactionDetail.id = p.id;
-                    transactionDetail.dty = decimal.Parse(transactionDT.Rows[1][2].ToString());
-                    transactionDetail.total = Math.Round(decimal.Parse(transactionDT.Rows[1][3].ToString()));
+                    transactionDetail.product_id = p.id;
+                    transactionDetail.dty = decimal.Parse(transactionDT.Rows[i][2].ToString());
+                    transactionDetail.total = Math.Round(decimal.Parse(transactionDT.Rows[i][3].ToString()));
 
                     transactionDetail.dea_cust_id = deaDLL.id;
                     transactionDetail.added_date = DateTime.Now;
                     transactionDetail.added_by = id;
 
-                    bool y = transactionDetailDAL.InsertTransactionDatail(transactionDetail);
-                    //transação = w /inserir = y
-                    success = w && y;
+                        string transactionType = lblTopo.Text;
+
+                        bool X = false;
+                        if (transactionType == "Compra")
+                        {
+                            X = produtoDAL.IncProduto(transactionDetail.product_id, transactionDetail.dty);
+                        }
+                        else if(transactionType == "Venda")
+                        {
+                            X = produtoDAL.DescProduto(transactionDetail.product_id, transactionDetail.dty);
+                        }
+
+                        bool y = transactionDetailDAL.InsertTransactionDatail(transactionDetail);
+                        //transação = w /inserir = y
+                        success = w && X && y;
+
                 }
+
+
 
                 if (success == true)
                 {
                     scrope.Complete();
+
+                        DGVPrinter printer = new DGVPrinter();
+                        printer.Title = "\r\n\r\n SISTEMA DE VENDAS";
+                        printer.SubTitle = "Sua Loja Favorita \r\n Telefone : 21 989419431 \r\n\r\n";
+                        printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                        printer.PageNumbers = true;
+                        printer.PageNumberInHeader = false;
+                        printer.PorportionalColumns = true;
+                        printer.HeaderCellAlignment = StringAlignment.Near;
+                        printer.Footer = "Disconto :" + txtDescont.Text + "% \r\n" + "Valor Total :" +txtTotalGeral.Text +"\r\n" +"OBRIGADO PELA COMPRA";
+                        printer.FooterSpacing = 15;
+                        printer.PrintDataGridView(dgvAddedProducts);
+
+
+
+
+                    
                     MessageBox.Show("DADOS SALVOS COM SUCESSO");
-                    dgvAddedProducts.DataSource = null;
-                    dgvAddedProducts.Rows.Clear();
+                        dgvAddedProducts.DataSource = null;
+                        dgvAddedProducts.Rows.Clear();
+                        dgvAddedProducts.Refresh();
 
                     txtSearchCli.Text = "";
                     txtNomeCli.Text = "";
@@ -224,6 +260,11 @@ namespace SistemaDeVendas.FormulariosUI
                 {
                     MessageBox.Show("NÃO FOI POSSIVEL SALVAR OS DADOS");
                 }
+            }
+            }
+            else
+            {
+                MessageBox.Show("VALOR TOTAL NECESSARIO");
             }
 
         }

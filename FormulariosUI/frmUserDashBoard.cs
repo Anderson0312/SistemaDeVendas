@@ -42,7 +42,7 @@ namespace SistemaDeVendas
             transactionType = "Venda";
             frmVendas Vendas = new frmVendas();
             Vendas.ShowDialog();
-            
+
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,7 +50,13 @@ namespace SistemaDeVendas
             transactionType = "Compra";
             frmVendas Compras = new frmVendas();
             Compras.ShowDialog();
-            
+
+        }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInventario inventario = new frmInventario();
+            inventario.ShowDialog();
         }
     }
 }

@@ -192,9 +192,8 @@ namespace SistemaDeVendas.DALDados
             }
             finally { conn.Close(); }
             return dt;
-            #endregion
-
         }
+            #endregion    
 
         #region metodo de pesquisa para pesquisar produto
         public produtoBLL SearchDealerCustomerForTransaction(string keywords)
@@ -261,7 +260,174 @@ namespace SistemaDeVendas.DALDados
         }
         #endregion
 
+        #region Metodo de pesquisar a quantidade de produtos 
+        public static decimal GetProdutoQty(int ProdutoId)
+        {
+            
+            SqlConnection conn = new SqlConnection(myconnstring);
+            decimal qty = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT gty FROM tbl_product WHERE id= "+ProdutoId;
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
+                conn.Open();
+
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    qty = decimal.Parse(dt.Rows[0]["gty"].ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return qty;
+
+        }
+        #endregion
+
+        #region Metodo de alterar a quantidade de produtos de acordo com a entrada
+        public static bool UpdateQty(int ProdutoId, decimal Qty)
+        {
+            bool success = false;
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                String sql = "UPDATE tbl_product SET gty=@gty WHERE id=@id ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@gty", Qty);
+                cmd.Parameters.AddWithValue("@id", ProdutoId);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                conn.Open();
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    success = true;
+                }
+                else
+                {
+                    success = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return success;
+
+        }
+        #endregion
+
+        #region Metodo de alterar a quantidade de produtos de acordo com a entrada
+        public static bool IncProduto(int ProdutoId, decimal IncQty)
+        {
+            bool success = false;
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                
+                decimal correnteQTY = GetProdutoQty(ProdutoId);
+                decimal NovaQTY = correnteQTY + IncQty;
+
+                success = UpdateQty(ProdutoId, NovaQTY);
+    
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return success;
+
+        }
+        #endregion
+
+        #region Metodo de alterar a quantidade de produtos de acordo com a saida
+        public static bool DescProduto(int ProdutoId, decimal IncQty)
+        {
+            bool success = false;
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+
+                decimal correnteQTY = GetProdutoQty(ProdutoId);
+                decimal NovaQTY = correnteQTY - IncQty;
+
+                success = UpdateQty(ProdutoId, NovaQTY);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return success;
+
+        }
+        #endregion
+
+        #region metodo de mostrar de acordo com tipo da transaçao 
+
+        public DataTable ShowProductForCat(string category)
+        {
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                String sql = "SELECT * FROM tbl_product WHERE category = '" + category + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        #endregion
         internal DataTable Search()
         {
             throw new NotImplementedException();

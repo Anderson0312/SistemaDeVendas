@@ -162,6 +162,7 @@
             invoiceToolStripMenuItem.Name = "invoiceToolStripMenuItem";
             invoiceToolStripMenuItem.Size = new Size(77, 19);
             invoiceToolStripMenuItem.Text = "Inventario";
+            invoiceToolStripMenuItem.Click += invoiceToolStripMenuItem_Click;
             // 
             // transitionsToolStripMenuItem
             // 
@@ -169,6 +170,7 @@
             transitionsToolStripMenuItem.Name = "transitionsToolStripMenuItem";
             transitionsToolStripMenuItem.Size = new Size(79, 19);
             transitionsToolStripMenuItem.Text = "Transações";
+            transitionsToolStripMenuItem.Click += transitionsToolStripMenuItem_Click;
             // 
             // labelFooter
             // 

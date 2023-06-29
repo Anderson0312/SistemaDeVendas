@@ -195,8 +195,67 @@ namespace SistemaDeVendas.DALDados
             }
             finally { conn.Close(); }
             return dt;
-            #endregion
-
         }
+        #endregion
+
+        #region metodo de Mostrar transaçoes 
+
+        public DataTable ShowTransaction()
+        {
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                String sql = "SELECT * FROM tbl_transaction";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        #endregion
+
+        #region metodo de mostrar de acordo com tipo da transaçao 
+
+        public  DataTable ShowTransactionForType(string type)
+        {
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                String sql = "SELECT * FROM tbl_transaction WHERE type = '"+type+"'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        #endregion
     }
 }

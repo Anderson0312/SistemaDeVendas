@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeVendas.FormulariosUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,6 +62,18 @@ namespace SistemaDeVendas
         {
             frmCliente cliente = new frmCliente();
             cliente.Show();
+        }
+
+        private void transitionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTransactions trasaction = new frmTransactions();
+            trasaction.Show();
+        }
+
+        private void invoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInventario inventario = new frmInventario();
+            inventario.Show();
         }
     }
 }

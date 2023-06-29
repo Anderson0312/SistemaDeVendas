@@ -150,6 +150,7 @@
             productsToolStripMenuItem.Name = "productsToolStripMenuItem";
             productsToolStripMenuItem.Size = new Size(77, 19);
             productsToolStripMenuItem.Text = "Inventario";
+            productsToolStripMenuItem.Click += productsToolStripMenuItem_Click;
             // 
             // labelFooter
             // 
