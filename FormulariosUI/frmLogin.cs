@@ -84,5 +84,15 @@ namespace SistemaDeVendas
         {
             l.username = txtUsername.Text.Trim();
         }
+
+        private void btnLogin_MouseEnter(object sender, EventArgs e)
+        {
+            btnLogin.ForeColor = Color.Black;
+        }
+
+        private void btnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogin.ForeColor = Color.Lime;
+        }
     }
 }
