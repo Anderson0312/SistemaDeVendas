@@ -36,6 +36,7 @@
             logedUser = new Label();
             lblLogado = new Label();
             MnuStripTop = new MenuStrip();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             usersToolStripMenuItem = new ToolStripMenuItem();
             categoryToolStripMenuItem = new ToolStripMenuItem();
             productsToolStripMenuItem = new ToolStripMenuItem();
@@ -44,14 +45,17 @@
             transitionsToolStripMenuItem = new ToolStripMenuItem();
             labelFooter = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            label3 = new Label();
+            pictureBox1 = new PictureBox();
             MnuStripTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(26, 43);
+            label1.Location = new Point(897, 38);
             label1.Name = "label1";
             label1.Size = new Size(43, 14);
             label1.TabIndex = 21;
@@ -62,7 +66,7 @@
             lbDateTime.AutoSize = true;
             lbDateTime.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbDateTime.ForeColor = SystemColors.MenuHighlight;
-            lbDateTime.Location = new Point(79, 43);
+            lbDateTime.Location = new Point(950, 38);
             lbDateTime.Name = "lbDateTime";
             lbDateTime.Size = new Size(95, 14);
             lbDateTime.TabIndex = 20;
@@ -83,9 +87,9 @@
             nameSistem.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             nameSistem.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             nameSistem.ForeColor = SystemColors.InfoText;
-            nameSistem.Location = new Point(111, 144);
+            nameSistem.Location = new Point(338, 187);
             nameSistem.Name = "nameSistem";
-            nameSistem.Size = new Size(888, 212);
+            nameSistem.Size = new Size(707, 210);
             nameSistem.TabIndex = 18;
             nameSistem.Text = "Sales of Sistem ";
             nameSistem.TextAlign = ContentAlignment.MiddleCenter;
@@ -95,7 +99,7 @@
             // 
             logedUser.AutoSize = true;
             logedUser.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            logedUser.Location = new Point(26, 69);
+            logedUser.Location = new Point(767, 38);
             logedUser.Name = "logedUser";
             logedUser.Size = new Size(47, 14);
             logedUser.TabIndex = 17;
@@ -106,7 +110,7 @@
             lblLogado.AutoSize = true;
             lblLogado.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblLogado.ForeColor = SystemColors.MenuHighlight;
-            lblLogado.Location = new Point(79, 69);
+            lblLogado.Location = new Point(820, 38);
             lblLogado.Name = "lblLogado";
             lblLogado.Size = new Size(55, 14);
             lblLogado.TabIndex = 16;
@@ -115,71 +119,102 @@
             // 
             // MnuStripTop
             // 
-            MnuStripTop.BackColor = SystemColors.InactiveCaption;
-            MnuStripTop.Items.AddRange(new ToolStripItem[] { usersToolStripMenuItem, categoryToolStripMenuItem, productsToolStripMenuItem, clientesToolStripMenuItem, invoiceToolStripMenuItem, transitionsToolStripMenuItem });
-            MnuStripTop.Location = new Point(0, 0);
+            MnuStripTop.BackColor = Color.FromArgb(10, 43, 64);
+            MnuStripTop.Dock = DockStyle.Left;
+            MnuStripTop.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, usersToolStripMenuItem, categoryToolStripMenuItem, productsToolStripMenuItem, clientesToolStripMenuItem, invoiceToolStripMenuItem, transitionsToolStripMenuItem });
+            MnuStripTop.Location = new Point(0, 61);
             MnuStripTop.Name = "MnuStripTop";
             MnuStripTop.Padding = new Padding(6, 4, 0, 4);
-            MnuStripTop.Size = new Size(1093, 27);
+            MnuStripTop.RenderMode = ToolStripRenderMode.Professional;
+            MnuStripTop.Size = new Size(267, 462);
             MnuStripTop.TabIndex = 15;
             MnuStripTop.Text = "menuStrip1";
             // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            toolStripMenuItem1.Image = Properties.Resources.sistemSF12;
+            toolStripMenuItem1.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripMenuItem1.Margin = new Padding(5, 20, 10, 20);
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Padding = new Padding(0, 0, 0, 20);
+            toolStripMenuItem1.Size = new Size(239, 91);
+            toolStripMenuItem1.Text = "SALES SITEM";
+            // 
             // usersToolStripMenuItem
             // 
-            usersToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            usersToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            usersToolStripMenuItem.Image = Properties.Resources.group;
+            usersToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(61, 19);
+            usersToolStripMenuItem.Padding = new Padding(4, 10, 4, 10);
+            usersToolStripMenuItem.Size = new Size(183, 45);
             usersToolStripMenuItem.Text = "Usuario";
             usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // categoryToolStripMenuItem
             // 
-            categoryToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            categoryToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            categoryToolStripMenuItem.Image = Properties.Resources.list;
+            categoryToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            categoryToolStripMenuItem.Size = new Size(72, 19);
+            categoryToolStripMenuItem.Padding = new Padding(4, 10, 4, 10);
+            categoryToolStripMenuItem.Size = new Size(183, 45);
             categoryToolStripMenuItem.Text = "Categoria";
             categoryToolStripMenuItem.Click += categoryToolStripMenuItem_Click;
             // 
             // productsToolStripMenuItem
             // 
-            productsToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            productsToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            productsToolStripMenuItem.Image = Properties.Resources.features;
+            productsToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            productsToolStripMenuItem.Size = new Size(64, 19);
+            productsToolStripMenuItem.Padding = new Padding(4, 10, 4, 10);
+            productsToolStripMenuItem.Size = new Size(183, 45);
             productsToolStripMenuItem.Text = "Produto";
             productsToolStripMenuItem.Click += productsToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
-            clientesToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            clientesToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            clientesToolStripMenuItem.Image = Properties.Resources.customer;
+            clientesToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(58, 19);
+            clientesToolStripMenuItem.Padding = new Padding(4, 10, 4, 10);
+            clientesToolStripMenuItem.Size = new Size(183, 45);
             clientesToolStripMenuItem.Text = "Cliente";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // invoiceToolStripMenuItem
             // 
-            invoiceToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            invoiceToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            invoiceToolStripMenuItem.Image = Properties.Resources.inventory;
+            invoiceToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             invoiceToolStripMenuItem.Name = "invoiceToolStripMenuItem";
-            invoiceToolStripMenuItem.Size = new Size(77, 19);
+            invoiceToolStripMenuItem.Padding = new Padding(4, 10, 4, 10);
+            invoiceToolStripMenuItem.Size = new Size(183, 45);
             invoiceToolStripMenuItem.Text = "Inventario";
             invoiceToolStripMenuItem.Click += invoiceToolStripMenuItem_Click;
             // 
             // transitionsToolStripMenuItem
             // 
-            transitionsToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            transitionsToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            transitionsToolStripMenuItem.Image = Properties.Resources.transaction;
+            transitionsToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             transitionsToolStripMenuItem.Name = "transitionsToolStripMenuItem";
-            transitionsToolStripMenuItem.Size = new Size(79, 19);
+            transitionsToolStripMenuItem.Padding = new Padding(4, 10, 4, 10);
+            transitionsToolStripMenuItem.Size = new Size(183, 45);
             transitionsToolStripMenuItem.Text = "Transações";
             transitionsToolStripMenuItem.Click += transitionsToolStripMenuItem_Click;
             // 
             // labelFooter
             // 
-            labelFooter.BackColor = SystemColors.GradientActiveCaption;
+            labelFooter.BackColor = Color.FromArgb(6, 29, 38);
             labelFooter.Dock = DockStyle.Bottom;
             labelFooter.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            labelFooter.Location = new Point(0, 464);
+            labelFooter.Location = new Point(267, 462);
             labelFooter.Name = "labelFooter";
-            labelFooter.Size = new Size(1093, 61);
+            labelFooter.Size = new Size(826, 61);
             labelFooter.TabIndex = 22;
             labelFooter.Text = "Developement by Anderson Sistemas";
             labelFooter.TextAlign = ContentAlignment.MiddleCenter;
@@ -188,12 +223,35 @@
             // 
             timer1.Tick += timer1_Tick_1;
             // 
+            // label3
+            // 
+            label3.BackColor = Color.FromArgb(6, 29, 38);
+            label3.Dock = DockStyle.Top;
+            label3.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(0, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(1093, 61);
+            label3.TabIndex = 23;
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.delete;
+            pictureBox1.Location = new Point(1061, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(32, 32);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // frmAdminDashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1093, 525);
+            BackColor = Color.FromArgb(64, 64, 64);
+            ClientSize = new Size(1093, 523);
+            Controls.Add(pictureBox1);
             Controls.Add(labelFooter);
             Controls.Add(label1);
             Controls.Add(lbDateTime);
@@ -202,6 +260,8 @@
             Controls.Add(logedUser);
             Controls.Add(lblLogado);
             Controls.Add(MnuStripTop);
+            Controls.Add(label3);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmAdminDashBoard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Painel Administrador";
@@ -209,6 +269,7 @@
             Load += frmAdminDashBoard_Load;
             MnuStripTop.ResumeLayout(false);
             MnuStripTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -230,5 +291,8 @@
         private Label labelFooter;
         private System.Windows.Forms.Timer timer1;
         private ToolStripMenuItem clientesToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private Label label3;
+        private PictureBox pictureBox1;
     }
 }

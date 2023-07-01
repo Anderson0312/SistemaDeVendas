@@ -75,5 +75,10 @@ namespace SistemaDeVendas
             frmInventario inventario = new frmInventario();
             inventario.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
