@@ -51,6 +51,7 @@
             // 
             // dtgView
             // 
+            dtgView.BackgroundColor = Color.FromArgb(50, 97, 115);
             dtgView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgView.Location = new Point(517, 116);
             dtgView.Name = "dtgView";
@@ -61,6 +62,8 @@
             // 
             // txtSearch
             // 
+            txtSearch.BackColor = Color.FromArgb(64, 64, 64);
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Location = new Point(611, 83);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(507, 23);
@@ -135,6 +138,8 @@
             // 
             // txtDesc
             // 
+            txtDesc.BackColor = Color.FromArgb(64, 64, 64);
+            txtDesc.BorderStyle = BorderStyle.FixedSingle;
             txtDesc.Location = new Point(170, 143);
             txtDesc.Multiline = true;
             txtDesc.Name = "txtDesc";
@@ -153,6 +158,8 @@
             // 
             // txtTituloCatego
             // 
+            txtTituloCatego.BackColor = Color.FromArgb(64, 64, 64);
+            txtTituloCatego.BorderStyle = BorderStyle.FixedSingle;
             txtTituloCatego.Location = new Point(170, 114);
             txtTituloCatego.Name = "txtTituloCatego";
             txtTituloCatego.Size = new Size(292, 23);
@@ -171,6 +178,8 @@
             // txtCategoriaID
             // 
             txtCategoriaID.AccessibleRole = AccessibleRole.None;
+            txtCategoriaID.BackColor = Color.FromArgb(64, 64, 64);
+            txtCategoriaID.BorderStyle = BorderStyle.FixedSingle;
             txtCategoriaID.Enabled = false;
             txtCategoriaID.Location = new Point(170, 85);
             txtCategoriaID.Name = "txtCategoriaID";
@@ -191,7 +200,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 192, 192);
+            panel1.BackColor = Color.FromArgb(6, 29, 38);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -216,6 +225,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.MenuHighlight;
             label1.Location = new Point(459, 14);
             label1.Name = "label1";
             label1.Size = new Size(229, 30);
@@ -227,7 +237,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.InactiveCaption;
+            BackColor = Color.FromArgb(50, 97, 115);
             ClientSize = new Size(1147, 429);
             Controls.Add(dtgView);
             Controls.Add(txtSearch);

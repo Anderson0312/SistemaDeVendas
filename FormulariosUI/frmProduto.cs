@@ -41,7 +41,7 @@ namespace SistemaDeVendas
             prodBLL.added_date = DateTime.Now;
 
             //frmLogin frmLogin = new frmLogin();
-            string loggedUser = frmLogin.loggedIn; 
+            string loggedUser = frmLogin.loggedIn;
             int user = userDAL.GetIDFromUserName(loggedUser);
             prodBLL.added_by = user;
 

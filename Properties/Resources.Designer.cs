@@ -73,9 +73,29 @@ namespace SistemaDeVendas.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap categories {
+            get {
+                object obj = ResourceManager.GetObject("categories", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customer {
             get {
                 object obj = ResourceManager.GetObject("customer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap customer__1_ {
+            get {
+                object obj = ResourceManager.GetObject("customer (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +116,16 @@ namespace SistemaDeVendas.Properties {
         internal static System.Drawing.Bitmap features {
             get {
                 object obj = ResourceManager.GetObject("features", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap features__1_ {
+            get {
+                object obj = ResourceManager.GetObject("features (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +156,16 @@ namespace SistemaDeVendas.Properties {
         internal static System.Drawing.Bitmap inventory {
             get {
                 object obj = ResourceManager.GetObject("inventory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inventory__1_ {
+            get {
+                object obj = ResourceManager.GetObject("inventory (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +226,16 @@ namespace SistemaDeVendas.Properties {
         internal static System.Drawing.Bitmap transaction {
             get {
                 object obj = ResourceManager.GetObject("transaction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transaction__1_ {
+            get {
+                object obj = ResourceManager.GetObject("transaction (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

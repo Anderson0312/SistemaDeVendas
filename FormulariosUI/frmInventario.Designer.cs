@@ -42,6 +42,7 @@
             // 
             // dvgInventario
             // 
+            dvgInventario.BackgroundColor = Color.FromArgb(50, 97, 115);
             dvgInventario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgInventario.Location = new Point(12, 103);
             dvgInventario.Name = "dvgInventario";
@@ -51,7 +52,7 @@
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = SystemColors.ControlLight;
+            btnSearch.BackColor = Color.FromArgb(28, 77, 140);
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnSearch.Location = new Point(979, 63);
@@ -64,6 +65,7 @@
             // 
             // cmbSearchCateg
             // 
+            cmbSearchCateg.BackColor = Color.FromArgb(50, 97, 115);
             cmbSearchCateg.FormattingEnabled = true;
             cmbSearchCateg.Items.AddRange(new object[] { "Compra", "Venda" });
             cmbSearchCateg.Location = new Point(153, 71);
@@ -84,7 +86,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 192, 192);
+            panel1.BackColor = Color.FromArgb(6, 29, 38);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -109,6 +111,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.MenuHighlight;
             label1.Location = new Point(506, 14);
             label1.Name = "label1";
             label1.Size = new Size(114, 30);
@@ -120,6 +123,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(50, 97, 115);
             ClientSize = new Size(1142, 627);
             Controls.Add(dvgInventario);
             Controls.Add(btnSearch);

@@ -79,6 +79,7 @@
             // 
             // dtgView
             // 
+            dtgView.BackgroundColor = Color.FromArgb(50, 97, 115);
             dtgView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgView.Location = new Point(500, 107);
             dtgView.Name = "dtgView";
@@ -89,6 +90,7 @@
             // 
             // cmbSex
             // 
+            cmbSex.BackColor = Color.FromArgb(50, 97, 115);
             cmbSex.FormattingEnabled = true;
             cmbSex.Items.AddRange(new object[] { "Masculine", "Feminine" });
             cmbSex.Location = new Point(161, 355);
@@ -98,6 +100,7 @@
             // 
             // cmbTypeUser
             // 
+            cmbTypeUser.BackColor = Color.FromArgb(50, 97, 115);
             cmbTypeUser.FormattingEnabled = true;
             cmbTypeUser.Items.AddRange(new object[] { "Usuario", "Administrador" });
             cmbTypeUser.Location = new Point(161, 384);
@@ -149,6 +152,8 @@
             // 
             // txtSearch
             // 
+            txtSearch.BackColor = Color.FromArgb(50, 97, 115);
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Location = new Point(594, 74);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(507, 23);
@@ -187,6 +192,8 @@
             // 
             // txtAdrress
             // 
+            txtAdrress.BackColor = Color.FromArgb(50, 97, 115);
+            txtAdrress.BorderStyle = BorderStyle.FixedSingle;
             txtAdrress.Location = new Point(161, 279);
             txtAdrress.Multiline = true;
             txtAdrress.Name = "txtAdrress";
@@ -205,6 +212,8 @@
             // 
             // txtPhoneNumber
             // 
+            txtPhoneNumber.BackColor = Color.FromArgb(50, 97, 115);
+            txtPhoneNumber.BorderStyle = BorderStyle.FixedSingle;
             txtPhoneNumber.Location = new Point(161, 250);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.Size = new Size(292, 23);
@@ -222,6 +231,8 @@
             // 
             // txtPassword
             // 
+            txtPassword.BackColor = Color.FromArgb(50, 97, 115);
+            txtPassword.BorderStyle = BorderStyle.FixedSingle;
             txtPassword.Location = new Point(161, 221);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
@@ -240,6 +251,8 @@
             // 
             // txtUserName
             // 
+            txtUserName.BackColor = Color.FromArgb(50, 97, 115);
+            txtUserName.BorderStyle = BorderStyle.FixedSingle;
             txtUserName.Location = new Point(161, 192);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(292, 23);
@@ -257,6 +270,8 @@
             // 
             // txtEmail
             // 
+            txtEmail.BackColor = Color.FromArgb(50, 97, 115);
+            txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Location = new Point(161, 163);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(292, 23);
@@ -274,6 +289,8 @@
             // 
             // txtLastName
             // 
+            txtLastName.BackColor = Color.FromArgb(50, 97, 115);
+            txtLastName.BorderStyle = BorderStyle.FixedSingle;
             txtLastName.Location = new Point(161, 134);
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(292, 23);
@@ -291,6 +308,8 @@
             // 
             // txtFirstName
             // 
+            txtFirstName.BackColor = Color.FromArgb(50, 97, 115);
+            txtFirstName.BorderStyle = BorderStyle.FixedSingle;
             txtFirstName.Location = new Point(161, 105);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(292, 23);
@@ -309,6 +328,8 @@
             // txtUserID
             // 
             txtUserID.AccessibleRole = AccessibleRole.None;
+            txtUserID.BackColor = Color.FromArgb(50, 97, 115);
+            txtUserID.BorderStyle = BorderStyle.FixedSingle;
             txtUserID.Enabled = false;
             txtUserID.Location = new Point(161, 76);
             txtUserID.Name = "txtUserID";
@@ -329,7 +350,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 192, 192);
+            panel1.BackColor = Color.FromArgb(6, 29, 38);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -354,6 +375,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.MenuHighlight;
             label1.Location = new Point(459, 14);
             label1.Name = "label1";
             label1.Size = new Size(210, 30);
@@ -365,7 +387,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.InactiveCaption;
+            BackColor = Color.FromArgb(50, 97, 115);
             ClientSize = new Size(1142, 492);
             Controls.Add(btnLimpar);
             Controls.Add(dtgView);

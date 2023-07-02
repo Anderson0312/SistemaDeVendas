@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace SistemaDeVendas
 {
@@ -18,6 +19,7 @@ namespace SistemaDeVendas
         {
             InitializeComponent();
         }
+
 
         private void nameSistem_Click(object sender, EventArgs e)
         {
@@ -79,6 +81,21 @@ namespace SistemaDeVendas
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSales_MouseHover(object sender, EventArgs e)
+        {
+            
         }
     }
 }

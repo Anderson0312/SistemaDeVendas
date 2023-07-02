@@ -93,7 +93,7 @@ namespace SistemaDeVendas.FormulariosUI
             decimal subtotal = decimal.Parse(txtSubTotal.Text);
             subtotal = subtotal + Total;
 
-            if (produtctName == "" )
+            if (produtctName == "")
             {
                 MessageBox.Show("FAVOR DIGITAR NOME DO PRODUTO");
             }
@@ -119,7 +119,7 @@ namespace SistemaDeVendas.FormulariosUI
             string value = txtDescont.Text;
 
 
-            if (string.IsNullOrEmpty(value) )
+            if (string.IsNullOrEmpty(value))
             {
                 MessageBox.Show("DIGITE O DESCONTO PARA ESTÁ VENDA");
             }
@@ -153,43 +153,44 @@ namespace SistemaDeVendas.FormulariosUI
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            if (txtTotalGeral.Text != "") { 
-            transictionBLL transaction = new transictionBLL();
-            transaction.type = lblTopo.Text;
-
-            string distClientName = txtNomeCli.Text;
-            deaCustBLL deaDLL = dcDal.SearchDealerIDName(distClientName);
-            transaction.dea_cust_id = deaDLL.id;
-            transaction.grandTotal = Math.Round(decimal.Parse(txtTotalGeral.Text), 2);
-            transaction.transaction_date = DateTime.Now;
-            transaction.tax = 0; //Valor declarado 0 pois não foi implementado imposto no sistema ainda
-            transaction.discount = decimal.Parse(txtDescont.Text);
-
-            string usuario = frmLogin.loggedIn;
-            int id = userDAL.GetIDFromUserName(usuario);
-            transaction.acced_by = id;
-            transaction.transacaoDetalhes = transactionDT;
-
-            bool success = false;
-
-            using (TransactionScope scrope = new TransactionScope())
+            if (txtTotalGeral.Text != "")
             {
-                int transacaoId = -1;
+                transictionBLL transaction = new transictionBLL();
+                transaction.type = lblTopo.Text;
 
-                bool w = transactionDAL.Insert(transaction, out transacaoId);
-                for (int i = 0; i < transactionDT.Rows.Count; i++)
+                string distClientName = txtNomeCli.Text;
+                deaCustBLL deaDLL = dcDal.SearchDealerIDName(distClientName);
+                transaction.dea_cust_id = deaDLL.id;
+                transaction.grandTotal = Math.Round(decimal.Parse(txtTotalGeral.Text), 2);
+                transaction.transaction_date = DateTime.Now;
+                transaction.tax = 0; //Valor declarado 0 pois não foi implementado imposto no sistema ainda
+                transaction.discount = decimal.Parse(txtDescont.Text);
+
+                string usuario = frmLogin.loggedIn;
+                int id = userDAL.GetIDFromUserName(usuario);
+                transaction.acced_by = id;
+                transaction.transacaoDetalhes = transactionDT;
+
+                bool success = false;
+
+                using (TransactionScope scrope = new TransactionScope())
                 {
-                    transactionDetailBLL transactionDetail = new transactionDetailBLL();
-                    string produtoNome = transactionDT.Rows[i][0].ToString();
-                    produtoBLL p = produtoDAL.SearchCustomerForNomeProd(produtoNome);
+                    int transacaoId = -1;
 
-                    transactionDetail.product_id = p.id;
-                    transactionDetail.dty = decimal.Parse(transactionDT.Rows[i][2].ToString());
-                    transactionDetail.total = Math.Round(decimal.Parse(transactionDT.Rows[i][3].ToString()));
+                    bool w = transactionDAL.Insert(transaction, out transacaoId);
+                    for (int i = 0; i < transactionDT.Rows.Count; i++)
+                    {
+                        transactionDetailBLL transactionDetail = new transactionDetailBLL();
+                        string produtoNome = transactionDT.Rows[i][0].ToString();
+                        produtoBLL p = produtoDAL.SearchCustomerForNomeProd(produtoNome);
 
-                    transactionDetail.dea_cust_id = deaDLL.id;
-                    transactionDetail.added_date = DateTime.Now;
-                    transactionDetail.added_by = id;
+                        transactionDetail.product_id = p.id;
+                        transactionDetail.dty = decimal.Parse(transactionDT.Rows[i][2].ToString());
+                        transactionDetail.total = Math.Round(decimal.Parse(transactionDT.Rows[i][3].ToString()));
+
+                        transactionDetail.dea_cust_id = deaDLL.id;
+                        transactionDetail.added_date = DateTime.Now;
+                        transactionDetail.added_by = id;
 
                         string transactionType = lblTopo.Text;
 
@@ -198,7 +199,7 @@ namespace SistemaDeVendas.FormulariosUI
                         {
                             X = produtoDAL.IncProduto(transactionDetail.product_id, transactionDetail.dty);
                         }
-                        else if(transactionType == "Venda")
+                        else if (transactionType == "Venda")
                         {
                             X = produtoDAL.DescProduto(transactionDetail.product_id, transactionDetail.dty);
                         }
@@ -207,13 +208,13 @@ namespace SistemaDeVendas.FormulariosUI
                         //transação = w /inserir = y
                         success = w && X && y;
 
-                }
+                    }
 
 
 
-                if (success == true)
-                {
-                    scrope.Complete();
+                    if (success == true)
+                    {
+                        scrope.Complete();
 
                         DGVPrinter printer = new DGVPrinter();
                         printer.Title = "\r\n\r\n SISTEMA DE VENDAS";
@@ -223,44 +224,44 @@ namespace SistemaDeVendas.FormulariosUI
                         printer.PageNumberInHeader = false;
                         printer.PorportionalColumns = true;
                         printer.HeaderCellAlignment = StringAlignment.Near;
-                        printer.Footer = "Disconto :" + txtDescont.Text + "% \r\n" + "Valor Total :" +txtTotalGeral.Text +"\r\n" +"OBRIGADO PELA COMPRA";
+                        printer.Footer = "Disconto :" + txtDescont.Text + "% \r\n" + "Valor Total :" + txtTotalGeral.Text + "\r\n" + "OBRIGADO PELA COMPRA";
                         printer.FooterSpacing = 15;
                         printer.PrintDataGridView(dgvAddedProducts);
 
 
 
 
-                    
-                    MessageBox.Show("DADOS SALVOS COM SUCESSO");
+
+                        MessageBox.Show("DADOS SALVOS COM SUCESSO");
                         dgvAddedProducts.DataSource = null;
                         dgvAddedProducts.Rows.Clear();
                         dgvAddedProducts.Refresh();
 
-                    txtSearchCli.Text = "";
-                    txtNomeCli.Text = "";
-                    txtEmailCli.Text = "";
-                    txtContatoCli.Text = "";
-                    txtEndercoCliente.Text = "";
-                    txtNomeProd.Text = "";
-                    txtInventario.Text = "";
-                    txtQuanti.Text = "";
-                    txtValor.Text = "";
-                    txtsearchProd.Text = "";
-                    txtNomeProd.Text = "";
-                    txtInventario.Text = "";
-                    txtValor.Text = "";
-                    txtQuanti.Text = "";
-                    txtSubTotal.Text = "0";
-                    txtDescont.Text = "0";
-                    txtTotalGeral.Text = "0";
-                    txtTotalPago.Text = "0";
-                    txtTroco.Text = "0";
+                        txtSearchCli.Text = "";
+                        txtNomeCli.Text = "";
+                        txtEmailCli.Text = "";
+                        txtContatoCli.Text = "";
+                        txtEndercoCliente.Text = "";
+                        txtNomeProd.Text = "";
+                        txtInventario.Text = "";
+                        txtQuanti.Text = "";
+                        txtValor.Text = "";
+                        txtsearchProd.Text = "";
+                        txtNomeProd.Text = "";
+                        txtInventario.Text = "";
+                        txtValor.Text = "";
+                        txtQuanti.Text = "";
+                        txtSubTotal.Text = "0";
+                        txtDescont.Text = "0";
+                        txtTotalGeral.Text = "0";
+                        txtTotalPago.Text = "0";
+                        txtTroco.Text = "0";
+                    }
+                    else
+                    {
+                        MessageBox.Show("NÃO FOI POSSIVEL SALVAR OS DADOS");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("NÃO FOI POSSIVEL SALVAR OS DADOS");
-                }
-            }
             }
             else
             {

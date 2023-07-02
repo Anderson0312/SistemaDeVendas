@@ -88,7 +88,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 192, 192);
+            panel1.BackColor = Color.FromArgb(6, 29, 38);
             panel1.Controls.Add(lblTopo);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
@@ -103,6 +103,7 @@
             lblTopo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTopo.AutoSize = true;
             lblTopo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTopo.ForeColor = SystemColors.MenuHighlight;
             lblTopo.Location = new Point(566, 9);
             lblTopo.Name = "lblTopo";
             lblTopo.Size = new Size(65, 30);
@@ -126,6 +127,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.MenuHighlight;
             label1.Location = new Point(459, 9);
             label1.Name = "label1";
             label1.Size = new Size(111, 30);
@@ -163,6 +165,7 @@
             // 
             // txtEndercoCliente
             // 
+            txtEndercoCliente.BackColor = Color.FromArgb(50, 97, 115);
             txtEndercoCliente.BorderStyle = BorderStyle.FixedSingle;
             txtEndercoCliente.Location = new Point(962, 63);
             txtEndercoCliente.Multiline = true;
@@ -192,6 +195,7 @@
             // 
             // txtContatoCli
             // 
+            txtContatoCli.BackColor = Color.FromArgb(50, 97, 115);
             txtContatoCli.BorderStyle = BorderStyle.FixedSingle;
             txtContatoCli.Location = new Point(510, 63);
             txtContatoCli.Name = "txtContatoCli";
@@ -210,6 +214,7 @@
             // 
             // txtEmailCli
             // 
+            txtEmailCli.BackColor = Color.FromArgb(50, 97, 115);
             txtEmailCli.BorderStyle = BorderStyle.FixedSingle;
             txtEmailCli.Location = new Point(510, 34);
             txtEmailCli.Name = "txtEmailCli";
@@ -228,6 +233,7 @@
             // 
             // txtNomeCli
             // 
+            txtNomeCli.BackColor = Color.FromArgb(50, 97, 115);
             txtNomeCli.BorderStyle = BorderStyle.FixedSingle;
             txtNomeCli.Location = new Point(94, 69);
             txtNomeCli.Name = "txtNomeCli";
@@ -246,6 +252,7 @@
             // 
             // txtSearchCli
             // 
+            txtSearchCli.BackColor = Color.FromArgb(50, 97, 115);
             txtSearchCli.BorderStyle = BorderStyle.FixedSingle;
             txtSearchCli.Location = new Point(94, 40);
             txtSearchCli.Name = "txtSearchCli";
@@ -308,6 +315,7 @@
             // 
             // txtValor
             // 
+            txtValor.BackColor = Color.FromArgb(50, 97, 115);
             txtValor.BorderStyle = BorderStyle.FixedSingle;
             txtValor.Location = new Point(718, 63);
             txtValor.Name = "txtValor";
@@ -326,6 +334,7 @@
             // 
             // txtQuanti
             // 
+            txtQuanti.BackColor = Color.FromArgb(50, 97, 115);
             txtQuanti.BorderStyle = BorderStyle.FixedSingle;
             txtQuanti.Location = new Point(517, 63);
             txtQuanti.Name = "txtQuanti";
@@ -344,6 +353,7 @@
             // 
             // txtInventario
             // 
+            txtInventario.BackColor = Color.FromArgb(50, 97, 115);
             txtInventario.BorderStyle = BorderStyle.FixedSingle;
             txtInventario.Location = new Point(517, 34);
             txtInventario.Name = "txtInventario";
@@ -362,6 +372,7 @@
             // 
             // txtNomeProd
             // 
+            txtNomeProd.BackColor = Color.FromArgb(50, 97, 115);
             txtNomeProd.BorderStyle = BorderStyle.FixedSingle;
             txtNomeProd.Location = new Point(94, 69);
             txtNomeProd.Name = "txtNomeProd";
@@ -380,6 +391,7 @@
             // 
             // txtsearchProd
             // 
+            txtsearchProd.BackColor = Color.FromArgb(50, 97, 115);
             txtsearchProd.BorderStyle = BorderStyle.FixedSingle;
             txtsearchProd.Location = new Point(94, 40);
             txtsearchProd.Name = "txtsearchProd";
@@ -419,6 +431,7 @@
             // 
             // dgvAddedProducts
             // 
+            dgvAddedProducts.BackgroundColor = Color.FromArgb(50, 97, 115);
             dgvAddedProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAddedProducts.Location = new Point(3, 34);
             dgvAddedProducts.Name = "dgvAddedProducts";
@@ -461,6 +474,7 @@
             // 
             // txtTroco
             // 
+            txtTroco.BackColor = Color.FromArgb(50, 97, 115);
             txtTroco.BorderStyle = BorderStyle.FixedSingle;
             txtTroco.Location = new Point(94, 191);
             txtTroco.Name = "txtTroco";
@@ -479,6 +493,7 @@
             // 
             // txtTotalPago
             // 
+            txtTotalPago.BackColor = Color.FromArgb(50, 97, 115);
             txtTotalPago.BorderStyle = BorderStyle.FixedSingle;
             txtTotalPago.Location = new Point(94, 162);
             txtTotalPago.Name = "txtTotalPago";
@@ -498,6 +513,7 @@
             // 
             // txtTotalGeral
             // 
+            txtTotalGeral.BackColor = Color.FromArgb(50, 97, 115);
             txtTotalGeral.BorderStyle = BorderStyle.FixedSingle;
             txtTotalGeral.Location = new Point(94, 131);
             txtTotalGeral.Name = "txtTotalGeral";
@@ -516,6 +532,7 @@
             // 
             // txtImpost
             // 
+            txtImpost.BackColor = Color.FromArgb(50, 97, 115);
             txtImpost.BorderStyle = BorderStyle.FixedSingle;
             txtImpost.Location = new Point(94, 102);
             txtImpost.Name = "txtImpost";
@@ -547,6 +564,7 @@
             // 
             // txtDescont
             // 
+            txtDescont.BackColor = Color.FromArgb(50, 97, 115);
             txtDescont.BorderStyle = BorderStyle.FixedSingle;
             txtDescont.Location = new Point(94, 69);
             txtDescont.Name = "txtDescont";
@@ -566,6 +584,7 @@
             // 
             // txtSubTotal
             // 
+            txtSubTotal.BackColor = Color.FromArgb(50, 97, 115);
             txtSubTotal.BorderStyle = BorderStyle.FixedSingle;
             txtSubTotal.Location = new Point(94, 40);
             txtSubTotal.Name = "txtSubTotal";
@@ -598,7 +617,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.InactiveCaption;
+            BackColor = Color.FromArgb(50, 97, 115);
             ClientSize = new Size(1210, 640);
             Controls.Add(panel5);
             Controls.Add(panel4);

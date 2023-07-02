@@ -40,6 +40,7 @@
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
+            pictureBox5 = new PictureBox();
             pictureBox2 = new PictureBox();
             label1 = new Label();
             panel5 = new Panel();
@@ -47,18 +48,17 @@
             panel6 = new Panel();
             pictureBox4 = new PictureBox();
             panel7 = new Panel();
-            pictureBox5 = new PictureBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // btnLogin
@@ -69,7 +69,7 @@
             btnLogin.FlatAppearance.MouseOverBackColor = Color.Lime;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnLogin.ForeColor = Color.Lime;
+            btnLogin.ForeColor = Color.LimeGreen;
             btnLogin.Location = new Point(591, 338);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(194, 45);
@@ -192,6 +192,15 @@
             panel4.Size = new Size(344, 384);
             panel4.TabIndex = 7;
             // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.sistemSF11;
+            pictureBox5.Location = new Point(12, 67);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(320, 224);
+            pictureBox5.TabIndex = 0;
+            pictureBox5.TabStop = false;
+            // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.user;
@@ -267,15 +276,6 @@
             panel7.Size = new Size(506, 248);
             panel7.TabIndex = 13;
             // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = Properties.Resources.sistemSF11;
-            pictureBox5.Location = new Point(12, 67);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(320, 224);
-            pictureBox5.TabIndex = 0;
-            pictureBox5.TabStop = false;
-            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -298,6 +298,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
@@ -306,7 +307,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

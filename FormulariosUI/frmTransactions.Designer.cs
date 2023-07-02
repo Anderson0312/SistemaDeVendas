@@ -42,7 +42,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 192, 192);
+            panel1.BackColor = Color.FromArgb(6, 29, 38);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -67,6 +67,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.MenuHighlight;
             label1.Location = new Point(506, 14);
             label1.Name = "label1";
             label1.Size = new Size(118, 30);
@@ -86,6 +87,7 @@
             // 
             // cmbSearch
             // 
+            cmbSearch.BackColor = Color.FromArgb(50, 97, 115);
             cmbSearch.FormattingEnabled = true;
             cmbSearch.Items.AddRange(new object[] { "Compra", "Venda" });
             cmbSearch.Location = new Point(200, 79);
@@ -96,7 +98,7 @@
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = SystemColors.ControlLight;
+            btnSearch.BackColor = Color.FromArgb(28, 77, 140);
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnSearch.Location = new Point(979, 71);
@@ -109,6 +111,7 @@
             // 
             // dvgTransaction
             // 
+            dvgTransaction.BackgroundColor = Color.FromArgb(50, 97, 115);
             dvgTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgTransaction.Location = new Point(12, 111);
             dvgTransaction.Name = "dvgTransaction";
@@ -120,7 +123,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.InactiveCaption;
+            BackColor = Color.FromArgb(50, 97, 115);
             ClientSize = new Size(1139, 635);
             Controls.Add(dvgTransaction);
             Controls.Add(btnSearch);

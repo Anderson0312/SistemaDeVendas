@@ -49,7 +49,7 @@ namespace SistemaDeVendas.FormulariosUI
         private void btnSearch_Click(object sender, EventArgs e)
         {
             DataTable dt = produtoDAL.Select();
-            dvgInventario.DataSource= dt;
+            dvgInventario.DataSource = dt;
         }
     }
 }
