@@ -1,19 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="frmAdminDashBoard.cs">
+    <Compile Update="FormulariosUI\frmAdminDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmCategoria.cs">
+    <Compile Update="FormulariosUI\frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmLogin.cs">
+    <Compile Update="FormulariosUI\frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmUserDashBoard.cs">
+    <Compile Update="FormulariosUI\frmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmUsers.cs">
+    <Compile Update="FormulariosUI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormulariosUI\frmProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormulariosUI\frmTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormulariosUI\frmUserDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormulariosUI\frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormulariosUI\frmVendas.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
