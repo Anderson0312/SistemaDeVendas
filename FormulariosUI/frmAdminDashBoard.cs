@@ -95,7 +95,14 @@ namespace SistemaDeVendas
 
         private void btnSales_MouseHover(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmLogin trocarUser = new frmLogin();
+            trocarUser.ShowDialog();
         }
     }
 }

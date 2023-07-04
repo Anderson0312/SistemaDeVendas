@@ -47,6 +47,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             label3 = new Label();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             MnuStripTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -56,7 +57,8 @@
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(6, 29, 38);
             label1.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(897, 38);
+            label1.ForeColor = Color.DarkGray;
+            label1.Location = new Point(897, 30);
             label1.Name = "label1";
             label1.Size = new Size(43, 14);
             label1.TabIndex = 21;
@@ -68,7 +70,7 @@
             lbDateTime.BackColor = Color.FromArgb(6, 29, 38);
             lbDateTime.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbDateTime.ForeColor = SystemColors.MenuHighlight;
-            lbDateTime.Location = new Point(950, 38);
+            lbDateTime.Location = new Point(950, 30);
             lbDateTime.Name = "lbDateTime";
             lbDateTime.Size = new Size(95, 14);
             lbDateTime.TabIndex = 20;
@@ -102,7 +104,8 @@
             logedUser.AutoSize = true;
             logedUser.BackColor = Color.FromArgb(6, 29, 38);
             logedUser.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            logedUser.Location = new Point(767, 38);
+            logedUser.ForeColor = Color.DarkGray;
+            logedUser.Location = new Point(767, 30);
             logedUser.Name = "logedUser";
             logedUser.Size = new Size(47, 14);
             logedUser.TabIndex = 17;
@@ -114,7 +117,7 @@
             lblLogado.BackColor = Color.FromArgb(6, 29, 38);
             lblLogado.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblLogado.ForeColor = SystemColors.MenuHighlight;
-            lblLogado.Location = new Point(820, 38);
+            lblLogado.Location = new Point(820, 30);
             lblLogado.Name = "lblLogado";
             lblLogado.Size = new Size(55, 14);
             lblLogado.TabIndex = 16;
@@ -267,12 +270,31 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.BackColor = Color.FromArgb(10, 43, 64);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.MenuHighlight;
+            button1.Image = Properties.Resources.logout;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(1050, 564);
+            button1.Name = "button1";
+            button1.Size = new Size(93, 46);
+            button1.TabIndex = 27;
+            button1.Text = "Logout";
+            button1.TextAlign = ContentAlignment.MiddleRight;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // frmAdminDashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1153, 618);
+            Controls.Add(button1);
             Controls.Add(pictureBox1);
             Controls.Add(labelFooter);
             Controls.Add(label1);
@@ -316,5 +338,6 @@
         private ToolStripMenuItem btnSales;
         private Label label3;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }

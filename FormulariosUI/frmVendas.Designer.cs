@@ -625,8 +625,9 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Location = new Point(350, 120);
             Name = "frmVendas";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "frmVendas";
             Load += frmVendas_Load;
             panel1.ResumeLayout(false);

@@ -131,8 +131,9 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Location = new Point(385, 120);
             Name = "frmTransactions";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "frmTransactions";
             Load += frmTransactions_Load;
             panel1.ResumeLayout(false);

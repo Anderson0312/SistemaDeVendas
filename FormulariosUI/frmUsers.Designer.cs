@@ -418,8 +418,9 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Location = new Point(385, 120);
             Name = "frmUsers";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "frmUsers";
             Load += frmUsers_Load;
             ((System.ComponentModel.ISupportInitialize)dtgView).EndInit();

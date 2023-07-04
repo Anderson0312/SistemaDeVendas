@@ -131,8 +131,9 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Location = new Point(385, 120);
             Name = "frmInventario";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "frmInventario";
             Load += frmInventario_Load;
             ((System.ComponentModel.ISupportInitialize)dvgInventario).EndInit();

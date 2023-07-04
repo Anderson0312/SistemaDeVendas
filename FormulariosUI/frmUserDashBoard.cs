@@ -58,5 +58,22 @@ namespace SistemaDeVendas
             frmInventario inventario = new frmInventario();
             inventario.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmLogin trocarUser = new frmLogin();
+            trocarUser.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
