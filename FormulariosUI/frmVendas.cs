@@ -21,6 +21,15 @@ namespace SistemaDeVendas.FormulariosUI
         public frmVendas()
         {
             InitializeComponent();
+            this.KeyDown += VendasDown;
+        }
+
+        private void VendasDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
         deaCustDAL dcDal = new deaCustDAL();
